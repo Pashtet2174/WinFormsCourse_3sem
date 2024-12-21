@@ -1,0 +1,14 @@
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\bin\Debug\net9.0-windows\WinFormsCourse_3sem.exe
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\bin\Debug\net9.0-windows\WinFormsCourse_3sem.deps.json
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\bin\Debug\net9.0-windows\WinFormsCourse_3sem.runtimeconfig.json
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\bin\Debug\net9.0-windows\WinFormsCourse_3sem.dll
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\bin\Debug\net9.0-windows\WinFormsCourse_3sem.pdb
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.AssemblyInfoInputs.cache
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.AssemblyInfo.cs
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.csproj.CoreCompileInputs.cache
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.dll
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\refint\WinFormsCourse_3sem.dll
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.pdb
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.genruntimeconfig.cache
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\ref\WinFormsCourse_3sem.dll
