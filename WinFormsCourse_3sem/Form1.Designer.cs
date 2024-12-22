@@ -29,113 +29,134 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        button1 = new System.Windows.Forms.Button();
-        button2 = new System.Windows.Forms.Button();
-        button3 = new System.Windows.Forms.Button();
-        button4 = new System.Windows.Forms.Button();
-        button5 = new System.Windows.Forms.Button();
+        addVendorButton = new System.Windows.Forms.Button();
+        panel1 = new System.Windows.Forms.Panel();
         textBox1 = new System.Windows.Forms.TextBox();
-        button6 = new System.Windows.Forms.Button();
+        button1 = new System.Windows.Forms.Button();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
-        // button1
+        // addVendorButton
         // 
-        button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
-        button1.ForeColor = System.Drawing.SystemColors.Desktop;
-        button1.Location = new System.Drawing.Point(37, 80);
-        button1.Name = "button1";
-        button1.Size = new System.Drawing.Size(110, 60);
-        button1.TabIndex = 0;
-        button1.Text = "Добавить кинотеатр";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
+        addVendorButton.Location = new System.Drawing.Point(128, 77);
+        addVendorButton.Name = "addVendorButton";
+        addVendorButton.Size = new System.Drawing.Size(119, 73);
+        addVendorButton.TabIndex = 0;
+        addVendorButton.Text = "Добавить поставщика";
+        addVendorButton.UseVisualStyleBackColor = true;
+        addVendorButton.Click += addVendorButton_Click;
         // 
-        // button2
+        // panel1
         // 
-        button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
-        button2.Location = new System.Drawing.Point(236, 80);
-        button2.Name = "button2";
-        button2.Size = new System.Drawing.Size(110, 60);
-        button2.TabIndex = 1;
-        button2.Text = "Добавить поставщика";
-        button2.UseVisualStyleBackColor = true;
-        // 
-        // button3
-        // 
-        button3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
-        button3.Location = new System.Drawing.Point(405, 80);
-        button3.Name = "button3";
-        button3.Size = new System.Drawing.Size(110, 60);
-        button3.TabIndex = 2;
-        button3.Text = "Добавить фильм";
-        button3.UseVisualStyleBackColor = true;
-        // 
-        // button4
-        // 
-        button4.Location = new System.Drawing.Point(591, 81);
-        button4.Name = "button4";
-        button4.Size = new System.Drawing.Size(110, 60);
-        button4.TabIndex = 3;
-        button4.Text = "Создать аренду";
-        button4.UseVisualStyleBackColor = true;
-        // 
-        // button5
-        // 
-        button5.Location = new System.Drawing.Point(683, 465);
-        button5.Name = "button5";
-        button5.Size = new System.Drawing.Size(135, 84);
-        button5.TabIndex = 4;
-        button5.Text = "Сохранить данные и выйти ";
-        button5.UseVisualStyleBackColor = true;
+        panel1.Controls.Add(textBox1);
+        panel1.Controls.Add(button1);
+        panel1.Dock = System.Windows.Forms.DockStyle.Top;
+        panel1.Location = new System.Drawing.Point(0, 0);
+        panel1.Name = "panel1";
+        panel1.Size = new System.Drawing.Size(924, 426);
+        panel1.TabIndex = 1;
         // 
         // textBox1
         // 
-        textBox1.Location = new System.Drawing.Point(1, 1);
+        textBox1.Location = new System.Drawing.Point(72, 215);
         textBox1.Name = "textBox1";
-        textBox1.Size = new System.Drawing.Size(846, 27);
-        textBox1.TabIndex = 5;
-        textBox1.Text = "Главное меню";
-        textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+        textBox1.Size = new System.Drawing.Size(131, 27);
+        textBox1.TabIndex = 1;
         // 
-        // button6
+        // button1
         // 
-        button6.Location = new System.Drawing.Point(623, 222);
-        button6.Name = "button6";
-        button6.Size = new System.Drawing.Size(116, 82);
-        button6.TabIndex = 6;
-        button6.Text = "Показать список аренды\r\n\r\n\r\n\r\n\r\n";
-        button6.UseVisualStyleBackColor = true;
+        button1.Location = new System.Drawing.Point(45, 56);
+        button1.Name = "button1";
+        button1.Size = new System.Drawing.Size(96, 93);
+        button1.TabIndex = 0;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
         // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.SystemColors.ControlLight;
-        ClientSize = new System.Drawing.Size(849, 570);
-        Controls.Add(button6);
-        Controls.Add(textBox1);
-        Controls.Add(button5);
-        Controls.Add(button4);
-        Controls.Add(button3);
-        Controls.Add(button2);
-        Controls.Add(button1);
+        ClientSize = new System.Drawing.Size(924, 810);
+        Controls.Add(panel1);
+        Controls.Add(addVendorButton);
         Text = "Система учёта аренды фильмов";
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
-    private System.Windows.Forms.Button button6;
-
+    private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.Button button1;
     private System.Windows.Forms.TextBox textBox1;
 
-    private System.Windows.Forms.Button button4;
-    private System.Windows.Forms.Button button5;
+    private System.Windows.Forms.Button addVendorButton;
 
-    private System.Windows.Forms.Button button3;
+    private System.Windows.Forms.Panel addVendorPanel; // Панель для добавления поставщика
 
-    private System.Windows.Forms.Button button2;
+    private void InitializeAddVendorPanel()
+    {
+        
+        // Создаём панель
+        addVendorPanel = new Panel
+        {
+            Dock = DockStyle.Fill, // Заполняет всю форму
+            Visible = false, // Скрыта по умолчанию
+            BackColor = SystemColors.ControlLight
+        };
 
-    private System.Windows.Forms.Button button1;
+        // Добавляем элементы на панель
+        Label nameLabel = new Label { Text = "Название:", Location = new Point(10, 10) };
+        TextBox nameTextBox = new TextBox { Location = new Point(120, 10), Width = 200 };
 
+        Label addressLabel = new Label { Text = "Юридический адрес:", Location = new Point(10, 50) };
+        TextBox addressTextBox = new TextBox { Location = new Point(120, 50), Width = 200 };
+
+        Label bankNameLabel = new Label { Text = "Банк:", Location = new Point(10, 90) };
+        TextBox bankNameTextBox = new TextBox { Location = new Point(120, 90), Width = 200 };
+
+        Label accountLabel = new Label { Text = "Счёт:", Location = new Point(10, 130) };
+        TextBox accountTextBox = new TextBox { Location = new Point(120, 130), Width = 200 };
+
+        Label innLabel = new Label { Text = "ИНН:", Location = new Point(10, 170) };
+        TextBox innTextBox = new TextBox { Location = new Point(120, 170), Width = 200 };
+
+        Button addButton = new Button { Text = "Добавить", Location = new Point(10, 210) };
+        Button backButton = new Button { Text = "Назад", Location = new Point(120, 210) };
+
+        // Обработчики событий
+        addButton.Click += (sender, e) =>
+        {
+            // Здесь добавляем поставщика
+            MessageBox.Show("Поставщик добавлен!");
+            // Очистка полей после добавления
+            nameTextBox.Text = "";
+            addressTextBox.Text = "";
+            bankNameTextBox.Text = "";
+            accountTextBox.Text = "";
+            innTextBox.Text = "";
+        };
+
+        backButton.Click += backButton_Click;
+        
+        // Добавляем элементы на панель
+        addVendorPanel.Controls.Add(nameLabel);
+        addVendorPanel.Controls.Add(nameTextBox);
+        addVendorPanel.Controls.Add(addressLabel);
+        addVendorPanel.Controls.Add(addressTextBox);
+        addVendorPanel.Controls.Add(bankNameLabel);
+        addVendorPanel.Controls.Add(bankNameTextBox);
+        addVendorPanel.Controls.Add(accountLabel);
+        addVendorPanel.Controls.Add(accountTextBox);
+        addVendorPanel.Controls.Add(innLabel);
+        addVendorPanel.Controls.Add(innTextBox);
+        addVendorPanel.Controls.Add(addButton);
+        addVendorPanel.Controls.Add(backButton);
+
+        // Добавляем панель на форму
+        Controls.Add(addVendorPanel);
+    }
+
+    
     #endregion
 }

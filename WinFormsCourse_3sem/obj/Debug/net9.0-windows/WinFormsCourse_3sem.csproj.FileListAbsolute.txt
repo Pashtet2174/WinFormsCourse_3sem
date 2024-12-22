@@ -12,3 +12,6 @@ C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\De
 C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.pdb
 C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.genruntimeconfig.cache
 C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\ref\WinFormsCourse_3sem.dll
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.Form1.resources
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.csproj.GenerateResource.cache
+C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\obj\Debug\net9.0-windows\WinFormsCourse_3sem.sourcelink.json
