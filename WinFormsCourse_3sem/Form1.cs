@@ -1,35 +1,182 @@
+using Course_3sem;
+
 namespace WinFormsCourse_3sem;
 
 public partial class Form1 : Form
 {
+    private readonly ICinemaService _cinemaService;
+    private readonly IFilmService _filmService;
+    private readonly IVendorService _vendorService;
+    private readonly IRentService _rentService;
     public Form1()
     {
+        _cinemaService = new CinemaService();
+        _filmService = new FilmService();
+        _vendorService = new VendorService();
+        _rentService = new RentService();
         InitializeComponent();
         InitializeAddVendorPanel();
-
+        InitializeAddFilmPanel();
+        InitializeAddCinemaPanel();
+        Load += Form1_Load;
     }
-
-
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        UpdateSupplierComboBox();
+    }
+    private void UpdateSupplierComboBox()
+    {
+        supplierComboBox.Items.Clear(); // Очищаем старые элементы
+        var vendors = _vendorService.GetVendors(); // Получаем список поставщиков
+        foreach (var vendor in vendors)
+        {
+            supplierComboBox.Items.Add(vendor); // Добавляем каждого поставщика
+        }
+        supplierComboBox.DisplayMember = "Name"; // Указываем, что отображать в списке
+    }
     private void addVendorButton_Click(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
         {
             control.Visible = false;
         }
-
-        // Показываем панель для добавления поставщика
         addVendorPanel.Visible = true;
     }
 
     private void backButton_Click(object sender, EventArgs e)
     {
-        addVendorPanel.Visible = false; // Скрываем панель добавления поставщика
-
-        // Отображаем все элементы главной формы, кроме самой панели addVendorPanel
+        addVendorPanel.Visible = false;
+        addFilmPanel.Visible = false;
+        addCinemaPanel.Visible = false; 
         foreach (Control control in Controls)
         {
-            if (control != addVendorPanel)
+            if (control != addFilmPanel & control != addVendorPanel & control != addCinemaPanel)
                 control.Visible = true;
         }
+    }
+
+    private void saveVendorButton_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(vendorNameTextBox.Text) || 
+            string.IsNullOrWhiteSpace(vendorLegalAddressTextBox.Text) || 
+            string.IsNullOrWhiteSpace(vendorBankTextBox.Text) || 
+            string.IsNullOrWhiteSpace(vendorBankAccountTextBox.Text) || 
+            string.IsNullOrWhiteSpace(vendorINNTextBox.Text))
+        {
+            MessageBox.Show("Все поля должны быть заполнены.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+        string name = vendorNameTextBox.Text;
+        string legalAddress = vendorLegalAddressTextBox.Text;
+        string bank = vendorBankTextBox.Text;
+        string bankAccount = vendorBankAccountTextBox.Text;
+        string inn = vendorINNTextBox.Text;
+        
+        Vendor vendor = new Vendor(name, legalAddress, bank, bankAccount, inn);
+        _vendorService.AddVendor(vendor);
+        MessageBox.Show($"Поставщик успешно добавлен.");
+        
+        UpdateSupplierComboBox();
+        vendorNameTextBox.Clear();
+        vendorLegalAddressTextBox.Clear();
+        vendorBankTextBox.Clear();
+        vendorBankAccountTextBox.Clear();
+        vendorINNTextBox.Clear();
+    }
+
+    private void saveAndBackButton_Click (object sender, EventArgs e)
+    {
+        
+    }
+    
+
+    
+
+    private void addFilmButton_Click(object sender, EventArgs e)
+    {
+        foreach (Control control in Controls)
+        {
+            control.Visible = false;
+        }
+        addFilmPanel.Visible = true;
+    }
+
+    private void saveFilmButton_Click (object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(filmNameTextBox.Text) ||
+            string.IsNullOrWhiteSpace(filmCategoryTextBox.Text) ||
+            string.IsNullOrWhiteSpace(filmScriptwriterTextBox.Text) ||
+            string.IsNullOrWhiteSpace(filmProductionDirectorTextBox.Text) ||
+            string.IsNullOrWhiteSpace(filmProductionCompanyTextBox.Text) ||
+            string.IsNullOrWhiteSpace(filmReleaseYearTextBox.Text) ||
+            string.IsNullOrWhiteSpace(filmCostTextBox.Text) ||
+            supplierComboBox.SelectedItem == null)
+        {
+            MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        // Получение данных из текстовых полей
+        string title = filmNameTextBox.Text;
+        string category = filmCategoryTextBox.Text;
+        string screenwriter = filmScriptwriterTextBox.Text;
+        string director = filmProductionDirectorTextBox.Text;
+        string producerCompany = filmProductionCompanyTextBox.Text;
+
+        // Преобразование года выпуска и стоимости
+        if (!int.TryParse(filmReleaseYearTextBox.Text, out int releaseYear))
+        {
+            MessageBox.Show("Введите корректный год выпуска.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        if (!decimal.TryParse(filmCostTextBox.Text, out decimal purchaseCost))
+        {
+            MessageBox.Show("Введите корректную стоимость.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        // Получение выбранного поставщика
+        Vendor selectedVendor = supplierComboBox.SelectedItem as Vendor;
+
+        if (selectedVendor == null)
+        {
+            MessageBox.Show("Пожалуйста, выберите поставщика.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        // Создание объекта Film
+        Film film = new Film(title, category, screenwriter, director, producerCompany, releaseYear, purchaseCost, selectedVendor);
+
+        // Добавление фильма через сервисы
+        _filmService.AddFilm(film);
+        _vendorService.AddFilmToVendor(selectedVendor, film);
+
+        // Уведомление об успешном добавлении
+        MessageBox.Show($"Фильм успешно добавлен.");
+
+        // Очистка полей
+        filmNameTextBox.Clear();
+        filmCategoryTextBox.Clear();
+        filmScriptwriterTextBox.Clear();
+        filmProductionDirectorTextBox.Clear();
+        filmProductionCompanyTextBox.Clear();
+        filmReleaseYearTextBox.Clear();
+        filmCostTextBox.Clear();
+        supplierComboBox.SelectedIndex = -1;
+    }
+
+    private void saveCinemaButton_Click(object sender, EventArgs e)
+    {
+        
+    }
+    
+    private void addCinemaButton_Click(object sender, EventArgs e)
+    {
+        foreach (Control control in Controls)
+        {
+            control.Visible = false;
+        }
+        addCinemaPanel.Visible = true;
     }
 }

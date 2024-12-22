@@ -1,6 +1,6 @@
 namespace Course_3sem;
 
-public class Vendor: IBank
+public class Vendor
 {
     private string _name;
     private string _legalAddress;
@@ -65,8 +65,5 @@ public class Vendor: IBank
         Films.Add(film);;
     }
 
-    public string GetBankDetails()
-    {
-        return $"Банк: {BankName}\nСчет: {BankAccount}\nИНН: {Inn}";
-    }
+    
 }

@@ -1,6 +1,6 @@
 namespace Course_3sem;
 
-public abstract class Cinema : IBank
+public abstract class Cinema 
 {
     private string _name;
     private string _address;
@@ -79,10 +79,6 @@ public abstract class Cinema : IBank
         Inn = innCinema;
     }
     
-    public string GetBankDetails()
-    {
-        return $"Банк: {BankName}, Счет: {BankAccount}, ИНН: {Inn} ";
-    }
     
     public abstract void DisplayCinemaType();
 }
