@@ -8,18 +8,51 @@ public partial class Form1 : Form
     private readonly IFilmService _filmService;
     private readonly IVendorService _vendorService;
     private readonly IRentService _rentService;
-    public Form1()
+    public Form1(ICinemaService cinemaService, IFilmService filmService, IVendorService vendorService,IRentService rentService)
     {
-        _cinemaService = new CinemaService();
-        _filmService = new FilmService();
-        _vendorService = new VendorService();
-        _rentService = new RentService();
+        _cinemaService = cinemaService;
+        _filmService = filmService;
+        _vendorService = vendorService;
+        _rentService = rentService;
         InitializeComponent();
         InitializeAddVendorPanel();
         InitializeAddFilmPanel();
         InitializeAddCinemaPanel();
         Load += Form1_Load;
     }
+    
+    
+    
+    private void CinemaTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        // Clear the additional field when the selection changes
+        additionalLabel.Text = string.Empty;
+        additionalTextBox.Clear();
+
+        switch (cinemaTypeComboBox.SelectedItem.ToString())
+        {
+            case "Традиционный":
+                additionalLabel.Text = "Тип экрана:";
+                break;
+            case "Под открытым небом":
+                additionalLabel.Text = "Ёмкость парковки:";
+                break;
+            case "4D":
+                additionalLabel.Text = "Эффектные сиденья:";
+                break;
+        }
+
+        // Show the additional field
+        additionalLabel.Visible = true;
+        additionalTextBox.Visible = true;
+    }
+    
+    
+    
+    
+    
+    
+    
     private void Form1_Load(object sender, EventArgs e)
     {
         UpdateSupplierComboBox();
@@ -52,7 +85,7 @@ public partial class Form1 : Form
         {
             if (control != addFilmPanel & control != addVendorPanel & control != addCinemaPanel)
                 control.Visible = true;
-        }
+        }   
     }
 
     private void saveVendorButton_Click(object sender, EventArgs e)
@@ -147,7 +180,7 @@ public partial class Form1 : Form
 
         // Создание объекта Film
         Film film = new Film(title, category, screenwriter, director, producerCompany, releaseYear, purchaseCost, selectedVendor);
-
+    
         // Добавление фильма через сервисы
         _filmService.AddFilm(film);
         _vendorService.AddFilmToVendor(selectedVendor, film);
@@ -178,5 +211,12 @@ public partial class Form1 : Form
             control.Visible = false;
         }
         addCinemaPanel.Visible = true;
+    }
+    
+    private void OpenShowRentsForm()
+    {
+        // Создание и отображение формы AddVendorForm с передачей сервисов
+        ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
+        showRentsForm.Show();
     }
 }

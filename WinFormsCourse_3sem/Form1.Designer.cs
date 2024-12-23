@@ -36,9 +36,10 @@ partial class Form1
         // 
         // addVendorButton
         // 
-        addVendorButton.Location = new System.Drawing.Point(54, 77);
+        addVendorButton.Anchor = (AnchorStyles.Left | AnchorStyles.Top);
+        addVendorButton.Location = new System.Drawing.Point(51, 77);
         addVendorButton.Name = "addVendorButton";
-        addVendorButton.Size = new System.Drawing.Size(119, 73);
+        addVendorButton.Size = new System.Drawing.Size(135, 73);
         addVendorButton.TabIndex = 0;
         addVendorButton.Text = "Добавить поставщика";
         addVendorButton.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@ partial class Form1
         // 
         // addFilmButton
         // 
-        addFilmButton.Location = new System.Drawing.Point(262, 77);
+        addFilmButton.Anchor = (AnchorStyles.Top);
+        addFilmButton.Location = new System.Drawing.Point(250, 77);
         addFilmButton.Name = "addFilmButton";
-        addFilmButton.Size = new System.Drawing.Size(120, 73);
+        addFilmButton.Size = new System.Drawing.Size(135, 73);
         addFilmButton.TabIndex = 1;
         addFilmButton.Text = "Добавить фильм";
         addFilmButton.UseVisualStyleBackColor = true;
@@ -56,7 +58,8 @@ partial class Form1
         // 
         // addCinemaButton
         // 
-        addCinemaButton.Location = new System.Drawing.Point(458, 77);
+        addCinemaButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+        addCinemaButton.Location = new System.Drawing.Point(450, 77);
         addCinemaButton.Name = "addCinemaButton";
         addCinemaButton.Size = new System.Drawing.Size(135, 73);
         addCinemaButton.TabIndex = 2;
@@ -69,10 +72,11 @@ partial class Form1
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.SystemColors.ControlLight;
-        ClientSize = new System.Drawing.Size(924, 810);
+        ClientSize = new System.Drawing.Size(823, 753);
         Controls.Add(addCinemaButton);
         Controls.Add(addFilmButton);
         Controls.Add(addVendorButton);
+        MinimumSize = new System.Drawing.Size(800, 800);
         Text = "Система учёта аренды фильмов";
         ResumeLayout(false);
     }
@@ -113,6 +117,16 @@ partial class Form1
         saveVendorButton = new System.Windows.Forms.Button();
         saveAndBackButton = new System.Windows.Forms.Button();
         SuspendLayout();
+        
+        addVendorPanel.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+        vendorNameTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+        vendorLegalAddressTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+        vendorBankTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+        vendorBankAccountTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+        vendorINNTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+        backButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
+        saveVendorButton.Anchor = (AnchorStyles.Bottom);
+        saveAndBackButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
         
         // addVendorPanel
         addVendorPanel.Controls.Add(vendorNameLabel);
@@ -429,217 +443,255 @@ partial class Form1
         ResumeLayout(false);
     }
     
-    private System.Windows.Forms.Panel addCinemaPanel;
-    private System.Windows.Forms.TextBox cinemaNameTextBox;
-    private System.Windows.Forms.TextBox cinemaAddressTextBox;
-    private System.Windows.Forms.TextBox cinemaPhoneTextBox;
-    private System.Windows.Forms.TextBox cinemaSeatCapacityTextBox;
-    private System.Windows.Forms.TextBox cinemaDirectorTextBox;
-    private System.Windows.Forms.TextBox cinemaOwnerTextBox;
-    private System.Windows.Forms.TextBox cinemaBankNameTextBox;
-    private System.Windows.Forms.TextBox cinemaBankAccountTextBox;
-    private System.Windows.Forms.TextBox cinemaInnTextBox;
-    private System.Windows.Forms.Button back3Button;
-    private System.Windows.Forms.Button saveCinemaButton;
-    private System.Windows.Forms.Label cinemaNameLabel;
-    private System.Windows.Forms.Label cinemaAddressLabel;
-    private System.Windows.Forms.Label cinemaPhoneLabel;
-    private System.Windows.Forms.Label cinemaSeatCapacityLabel;
-    private System.Windows.Forms.Label cinemaDirectorLabel;
-    private System.Windows.Forms.Label cinemaOwnerLabel;
-    private System.Windows.Forms.Label cinemaBankNameLabel;
-    private System.Windows.Forms.Label cinemaBankAccountLabel;
-    private System.Windows.Forms.Label cinemaInnLabel;
-
-    private void InitializeAddCinemaPanel()
-    {
-        addCinemaPanel = new System.Windows.Forms.Panel();
-        cinemaNameLabel = new Label();
-        cinemaNameTextBox = new System.Windows.Forms.TextBox();
-        cinemaAddressLabel = new Label();
-        cinemaAddressTextBox = new System.Windows.Forms.TextBox();
-        cinemaPhoneLabel = new Label();
-        cinemaPhoneTextBox = new TextBox();
-        cinemaSeatCapacityLabel = new Label();
-        cinemaSeatCapacityTextBox = new TextBox();
-        cinemaDirectorLabel = new Label();
-        cinemaDirectorTextBox = new TextBox();
-        cinemaOwnerLabel = new Label();
-        cinemaOwnerTextBox = new TextBox();
-        cinemaBankNameLabel = new Label();
-        cinemaBankNameTextBox = new TextBox();
-        cinemaBankAccountLabel = new Label();
-        cinemaBankAccountTextBox = new TextBox();
-        cinemaInnLabel = new Label();
-        cinemaInnTextBox = new TextBox();
-        back3Button = new System.Windows.Forms.Button();
-        saveCinemaButton = new System.Windows.Forms.Button();
-        SuspendLayout();
-
-        // addCinemaPanel
-        addCinemaPanel.Controls.Add(cinemaNameLabel);
-        addCinemaPanel.Controls.Add(cinemaNameTextBox);
-        addCinemaPanel.Controls.Add(cinemaAddressLabel);
-        addCinemaPanel.Controls.Add(cinemaAddressTextBox);
-        addCinemaPanel.Controls.Add(cinemaPhoneLabel);
-        addCinemaPanel.Controls.Add(cinemaPhoneTextBox);
-        addCinemaPanel.Controls.Add(cinemaSeatCapacityLabel);
-        addCinemaPanel.Controls.Add(cinemaSeatCapacityTextBox);
-        addCinemaPanel.Controls.Add(cinemaDirectorLabel);
-        addCinemaPanel.Controls.Add(cinemaDirectorTextBox);
-        addCinemaPanel.Controls.Add(cinemaOwnerLabel);
-        addCinemaPanel.Controls.Add(cinemaOwnerTextBox);
-        addCinemaPanel.Controls.Add(cinemaBankNameLabel);
-        addCinemaPanel.Controls.Add(cinemaBankNameTextBox);
-        addCinemaPanel.Controls.Add(cinemaBankAccountLabel);
-        addCinemaPanel.Controls.Add(cinemaBankAccountTextBox);
-        addCinemaPanel.Controls.Add(cinemaInnLabel);
-        addCinemaPanel.Controls.Add(cinemaInnTextBox);
-        addCinemaPanel.Controls.Add(back3Button);
-        addCinemaPanel.Controls.Add(saveCinemaButton);
-        addCinemaPanel.Name = "addCinemaPanel";
-        addCinemaPanel.Dock = DockStyle.Fill;
-        addCinemaPanel.TabIndex = 1;
-        addCinemaPanel.Visible = false;
-
-        // cinemaNameLabel
-        cinemaNameLabel.Location = new System.Drawing.Point(20, 20);
-        cinemaNameLabel.Name = "cinemaNameLabel";
-        cinemaNameLabel.Text = "Название кинотеатра";
-        cinemaNameLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaNameLabel.TabIndex = 0;
-
-        // cinemaNameTextBox
-        cinemaNameTextBox.Location = new System.Drawing.Point(20, 50);
-        cinemaNameTextBox.Name = "cinemaNameTextBox";
-        cinemaNameTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaNameTextBox.TabIndex = 1;
-
-        // cinemaAddressLabel
-        cinemaAddressLabel.Location = new System.Drawing.Point(20, 80);
-        cinemaAddressLabel.Name = "cinemaAddressLabel";
-        cinemaAddressLabel.Text = "Адрес";
-        cinemaAddressLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaAddressLabel.TabIndex = 2;
-
-        // cinemaAddressTextBox
-        cinemaAddressTextBox.Location = new System.Drawing.Point(20, 110);
-        cinemaAddressTextBox.Name = "cinemaAddressTextBox";
-        cinemaAddressTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaAddressTextBox.TabIndex = 3;
-
-        // cinemaPhoneLabel
-        cinemaPhoneLabel.Location = new System.Drawing.Point(20, 140);
-        cinemaPhoneLabel.Name = "cinemaPhoneLabel";
-        cinemaPhoneLabel.Text = "Телефон";
-        cinemaPhoneLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaPhoneLabel.TabIndex = 4;
-
-        // cinemaPhoneTextBox
-        cinemaPhoneTextBox.Location = new System.Drawing.Point(20, 170);
-        cinemaPhoneTextBox.Name = "cinemaPhoneTextBox";
-        cinemaPhoneTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaPhoneTextBox.TabIndex = 5;
-
-        // cinemaSeatCapacityLabel
-        cinemaSeatCapacityLabel.Location = new System.Drawing.Point(20, 200);
-        cinemaSeatCapacityLabel.Name = "cinemaSeatCapacityLabel";
-        cinemaSeatCapacityLabel.Text = "Количество мест";
-        cinemaSeatCapacityLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaSeatCapacityLabel.TabIndex = 6;
-
-        // cinemaSeatCapacityTextBox
-        cinemaSeatCapacityTextBox.Location = new System.Drawing.Point(20, 230);
-        cinemaSeatCapacityTextBox.Name = "cinemaSeatCapacityTextBox";
-        cinemaSeatCapacityTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaSeatCapacityTextBox.TabIndex = 7;
-
-        // cinemaDirectorLabel
-        cinemaDirectorLabel.Location = new System.Drawing.Point(20, 260);
-        cinemaDirectorLabel.Name = "cinemaDirectorLabel";
-        cinemaDirectorLabel.Text = "Директор";
-        cinemaDirectorLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaDirectorLabel.TabIndex = 8;
-
-        // cinemaDirectorTextBox
-        cinemaDirectorTextBox.Location = new System.Drawing.Point(20, 290);
-        cinemaDirectorTextBox.Name = "cinemaDirectorTextBox";
-        cinemaDirectorTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaDirectorTextBox.TabIndex = 9;
-
-        // cinemaOwnerLabel
-        cinemaOwnerLabel.Location = new System.Drawing.Point(20, 320);
-        cinemaOwnerLabel.Name = "cinemaOwnerLabel";
-        cinemaOwnerLabel.Text = "Владелец";
-        cinemaOwnerLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaOwnerLabel.TabIndex = 10;
-
-        // cinemaOwnerTextBox
-        cinemaOwnerTextBox.Location = new System.Drawing.Point(20, 350);
-        cinemaOwnerTextBox.Name = "cinemaOwnerTextBox";
-        cinemaOwnerTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaOwnerTextBox.TabIndex = 11;
-
-        // cinemaBankNameLabel
-        cinemaBankNameLabel.Location = new System.Drawing.Point(20, 380);
-        cinemaBankNameLabel.Name = "cinemaBankNameLabel";
-        cinemaBankNameLabel.Text = "Банк";
-        cinemaBankNameLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaBankNameLabel.TabIndex = 12;
-
-        // cinemaBankNameTextBox
-        cinemaBankNameTextBox.Location = new System.Drawing.Point(20, 410);
-        cinemaBankNameTextBox.Name = "cinemaBankNameTextBox";
-        cinemaBankNameTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaBankNameTextBox.TabIndex = 13;
-
-        // cinemaBankAccountLabel
-        cinemaBankAccountLabel.Location = new System.Drawing.Point(20, 440);
-        cinemaBankAccountLabel.Name = "cinemaBankAccountLabel";
-        cinemaBankAccountLabel.Text = "Номер счёта";
-        cinemaBankAccountLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaBankAccountLabel.TabIndex = 14;
-
-        // cinemaBankAccountTextBox
-        cinemaBankAccountTextBox.Location = new System.Drawing.Point(20, 470);
-        cinemaBankAccountTextBox.Name = "cinemaBankAccountTextBox";
-        cinemaBankAccountTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaBankAccountTextBox.TabIndex = 15;
-
-        // cinemaInnLabel
-        cinemaInnLabel.Location = new System.Drawing.Point(20, 500);
-        cinemaInnLabel.Name = "cinemaInnLabel";
-        cinemaInnLabel.Text = "ИНН";
-        cinemaInnLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaInnLabel.TabIndex = 16;
-
-        // cinemaInnTextBox
-        cinemaInnTextBox.Location = new System.Drawing.Point(20, 530);
-        cinemaInnTextBox.Name = "cinemaInnTextBox";
-        cinemaInnTextBox.Size = new System.Drawing.Size(300, 27);
-        cinemaInnTextBox.TabIndex = 17;
-
-        // backButton
-        back3Button.Location = new System.Drawing.Point(20, 570);
-        back3Button.Name = "backButton";
-        back3Button.Size = new System.Drawing.Size(100, 30);
-        back3Button.TabIndex = 18;
-        back3Button.Text = "Назад";
-        back3Button.UseVisualStyleBackColor = true;
-        back3Button.Click += backButton_Click;
-
-        // saveCinemaButton
-        saveCinemaButton.Location = new System.Drawing.Point(220, 570);
-        saveCinemaButton.Name = "saveCinemaButton";
-        saveCinemaButton.Size = new System.Drawing.Size(100, 30);
-        saveCinemaButton.TabIndex = 19;
-        saveCinemaButton.Text = "Сохранить";
-        saveCinemaButton.UseVisualStyleBackColor = true;
-        saveCinemaButton.Click += saveCinemaButton_Click;
+        private System.Windows.Forms.Panel addCinemaPanel;
+        private System.Windows.Forms.TextBox cinemaNameTextBox;
+        private System.Windows.Forms.TextBox cinemaAddressTextBox;
+        private System.Windows.Forms.TextBox cinemaPhoneTextBox;
+        private System.Windows.Forms.TextBox cinemaSeatCapacityTextBox;
+        private System.Windows.Forms.TextBox cinemaDirectorTextBox;
+        private System.Windows.Forms.TextBox cinemaOwnerTextBox;
+        private System.Windows.Forms.TextBox cinemaBankNameTextBox;
+        private System.Windows.Forms.TextBox cinemaBankAccountTextBox;
+        private System.Windows.Forms.TextBox cinemaInnTextBox;
+        private System.Windows.Forms.Button back3Button;
+        private System.Windows.Forms.Button saveCinemaButton;
+        private System.Windows.Forms.Label cinemaNameLabel;
+        private System.Windows.Forms.Label cinemaAddressLabel;
+        private System.Windows.Forms.Label cinemaPhoneLabel;
+        private System.Windows.Forms.Label cinemaSeatCapacityLabel;
+        private System.Windows.Forms.Label cinemaDirectorLabel;
+        private System.Windows.Forms.Label cinemaOwnerLabel;
+        private System.Windows.Forms.Label cinemaBankNameLabel;
+        private System.Windows.Forms.Label cinemaBankAccountLabel;
+        private System.Windows.Forms.Label cinemaInnLabel;
         
-        Controls.Add(addCinemaPanel);
-        ResumeLayout(false);
-    }
+        
+        
+        private System.Windows.Forms.ComboBox cinemaTypeComboBox;
+        private System.Windows.Forms.Label additionalLabel;
+        private System.Windows.Forms.TextBox additionalTextBox;
+        
+
+        private void InitializeAddCinemaPanel()
+        {
+            addCinemaPanel = new System.Windows.Forms.Panel();
+            cinemaNameLabel = new Label();
+            cinemaNameTextBox = new System.Windows.Forms.TextBox();
+            cinemaAddressLabel = new Label();
+            cinemaAddressTextBox = new System.Windows.Forms.TextBox();
+            cinemaPhoneLabel = new Label();
+            cinemaPhoneTextBox = new TextBox();
+            cinemaSeatCapacityLabel = new Label();
+            cinemaSeatCapacityTextBox = new TextBox();
+            cinemaDirectorLabel = new Label();
+            cinemaDirectorTextBox = new TextBox();
+            cinemaOwnerLabel = new Label();
+            cinemaOwnerTextBox = new TextBox();
+            cinemaBankNameLabel = new Label();
+            cinemaBankNameTextBox = new TextBox();
+            cinemaBankAccountLabel = new Label();
+            cinemaBankAccountTextBox = new TextBox();
+            cinemaInnLabel = new Label();
+            cinemaInnTextBox = new TextBox();
+            back3Button = new System.Windows.Forms.Button();
+            saveCinemaButton = new System.Windows.Forms.Button();
+            
+            cinemaTypeComboBox = new ComboBox();
+            cinemaTypeComboBox.Items.Add("Традиционный");
+            cinemaTypeComboBox.Items.Add("Под открытым небом");
+            cinemaTypeComboBox.Items.Add("4D");
+            cinemaTypeComboBox.SelectedIndexChanged += CinemaTypeComboBox_SelectedIndexChanged;
+
+            // additional field (Label and TextBox)
+            additionalLabel = new Label();
+            additionalTextBox = new TextBox();
+            
+            
+            
+            SuspendLayout();
+
+            // addCinemaPanel
+            
+            addCinemaPanel.Controls.Add(cinemaTypeComboBox); // add cinemaTypeComboBox
+            addCinemaPanel.Controls.Add(additionalLabel); // add additionalLabel
+            addCinemaPanel.Controls.Add(additionalTextBox); // add additionalTextBox
+            
+            addCinemaPanel.Controls.Add(cinemaNameLabel);
+            addCinemaPanel.Controls.Add(cinemaNameTextBox);
+            addCinemaPanel.Controls.Add(cinemaAddressLabel);
+            addCinemaPanel.Controls.Add(cinemaAddressTextBox);
+            addCinemaPanel.Controls.Add(cinemaPhoneLabel);
+            addCinemaPanel.Controls.Add(cinemaPhoneTextBox);
+            addCinemaPanel.Controls.Add(cinemaSeatCapacityLabel);
+            addCinemaPanel.Controls.Add(cinemaSeatCapacityTextBox);
+            addCinemaPanel.Controls.Add(cinemaDirectorLabel);
+            addCinemaPanel.Controls.Add(cinemaDirectorTextBox);
+            addCinemaPanel.Controls.Add(cinemaOwnerLabel);
+            addCinemaPanel.Controls.Add(cinemaOwnerTextBox);
+            addCinemaPanel.Controls.Add(cinemaBankNameLabel);
+            addCinemaPanel.Controls.Add(cinemaBankNameTextBox);
+            addCinemaPanel.Controls.Add(cinemaBankAccountLabel);
+            addCinemaPanel.Controls.Add(cinemaBankAccountTextBox);
+            addCinemaPanel.Controls.Add(cinemaInnLabel);
+            addCinemaPanel.Controls.Add(cinemaInnTextBox);
+            addCinemaPanel.Controls.Add(back3Button);
+            addCinemaPanel.Controls.Add(saveCinemaButton);
+            addCinemaPanel.Name = "addCinemaPanel";
+            addCinemaPanel.Dock = DockStyle.Fill;
+            addCinemaPanel.TabIndex = 1;
+            addCinemaPanel.Visible = false;
+
+            // cinemaNameLabel
+            cinemaNameLabel.Location = new System.Drawing.Point(20, 20);
+            cinemaNameLabel.Name = "cinemaNameLabel";
+            cinemaNameLabel.Text = "Название кинотеатра";
+            cinemaNameLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaNameLabel.TabIndex = 0;
+
+            // cinemaNameTextBox
+            cinemaNameTextBox.Location = new System.Drawing.Point(20, 50);
+            cinemaNameTextBox.Name = "cinemaNameTextBox";
+            cinemaNameTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaNameTextBox.TabIndex = 1;
+
+            // cinemaAddressLabel
+            cinemaAddressLabel.Location = new System.Drawing.Point(20, 80);
+            cinemaAddressLabel.Name = "cinemaAddressLabel";
+            cinemaAddressLabel.Text = "Адрес";
+            cinemaAddressLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaAddressLabel.TabIndex = 2;
+
+            // cinemaAddressTextBox
+            cinemaAddressTextBox.Location = new System.Drawing.Point(20, 110);
+            cinemaAddressTextBox.Name = "cinemaAddressTextBox";
+            cinemaAddressTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaAddressTextBox.TabIndex = 3;
+
+            // cinemaPhoneLabel
+            cinemaPhoneLabel.Location = new System.Drawing.Point(20, 140);
+            cinemaPhoneLabel.Name = "cinemaPhoneLabel";
+            cinemaPhoneLabel.Text = "Телефон";
+            cinemaPhoneLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaPhoneLabel.TabIndex = 4;
+
+            // cinemaPhoneTextBox
+            cinemaPhoneTextBox.Location = new System.Drawing.Point(20, 170);
+            cinemaPhoneTextBox.Name = "cinemaPhoneTextBox";
+            cinemaPhoneTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaPhoneTextBox.TabIndex = 5;
+
+            // cinemaSeatCapacityLabel
+            cinemaSeatCapacityLabel.Location = new System.Drawing.Point(20, 200);
+            cinemaSeatCapacityLabel.Name = "cinemaSeatCapacityLabel";
+            cinemaSeatCapacityLabel.Text = "Количество мест";
+            cinemaSeatCapacityLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaSeatCapacityLabel.TabIndex = 6;
+
+            // cinemaSeatCapacityTextBox
+            cinemaSeatCapacityTextBox.Location = new System.Drawing.Point(20, 230);
+            cinemaSeatCapacityTextBox.Name = "cinemaSeatCapacityTextBox";
+            cinemaSeatCapacityTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaSeatCapacityTextBox.TabIndex = 7;
+
+            // cinemaDirectorLabel
+            cinemaDirectorLabel.Location = new System.Drawing.Point(20, 260);
+            cinemaDirectorLabel.Name = "cinemaDirectorLabel";
+            cinemaDirectorLabel.Text = "Директор";
+            cinemaDirectorLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaDirectorLabel.TabIndex = 8;
+
+            // cinemaDirectorTextBox
+            cinemaDirectorTextBox.Location = new System.Drawing.Point(20, 290);
+            cinemaDirectorTextBox.Name = "cinemaDirectorTextBox";
+            cinemaDirectorTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaDirectorTextBox.TabIndex = 9;
+
+            // cinemaOwnerLabel
+            cinemaOwnerLabel.Location = new System.Drawing.Point(20, 320);
+            cinemaOwnerLabel.Name = "cinemaOwnerLabel";
+            cinemaOwnerLabel.Text = "Владелец";
+            cinemaOwnerLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaOwnerLabel.TabIndex = 10;
+
+            // cinemaOwnerTextBox
+            cinemaOwnerTextBox.Location = new System.Drawing.Point(20, 350);
+            cinemaOwnerTextBox.Name = "cinemaOwnerTextBox";
+            cinemaOwnerTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaOwnerTextBox.TabIndex = 11;
+
+            // cinemaBankNameLabel
+            cinemaBankNameLabel.Location = new System.Drawing.Point(20, 380);
+            cinemaBankNameLabel.Name = "cinemaBankNameLabel";
+            cinemaBankNameLabel.Text = "Банк";
+            cinemaBankNameLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaBankNameLabel.TabIndex = 12;
+
+            // cinemaBankNameTextBox
+            cinemaBankNameTextBox.Location = new System.Drawing.Point(20, 410);
+            cinemaBankNameTextBox.Name = "cinemaBankNameTextBox";
+            cinemaBankNameTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaBankNameTextBox.TabIndex = 13;
+
+            // cinemaBankAccountLabel
+            cinemaBankAccountLabel.Location = new System.Drawing.Point(20, 440);
+            cinemaBankAccountLabel.Name = "cinemaBankAccountLabel";
+            cinemaBankAccountLabel.Text = "Номер счёта";
+            cinemaBankAccountLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaBankAccountLabel.TabIndex = 14;
+
+            // cinemaBankAccountTextBox
+            cinemaBankAccountTextBox.Location = new System.Drawing.Point(20, 470);
+            cinemaBankAccountTextBox.Name = "cinemaBankAccountTextBox";
+            cinemaBankAccountTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaBankAccountTextBox.TabIndex = 15;
+
+            // cinemaInnLabel
+            cinemaInnLabel.Location = new System.Drawing.Point(20, 500);
+            cinemaInnLabel.Name = "cinemaInnLabel";
+            cinemaInnLabel.Text = "ИНН";
+            cinemaInnLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaInnLabel.TabIndex = 16;
+
+            // cinemaInnTextBox
+            cinemaInnTextBox.Location = new System.Drawing.Point(20, 530);
+            cinemaInnTextBox.Name = "cinemaInnTextBox";
+            cinemaInnTextBox.Size = new System.Drawing.Size(300, 27);
+            cinemaInnTextBox.TabIndex = 17;
+
+            // position the ComboBox for selecting cinema type
+            cinemaTypeComboBox.Location = new System.Drawing.Point(20, 530);
+            cinemaTypeComboBox.Name = "cinemaTypeComboBox";
+            cinemaTypeComboBox.Size = new System.Drawing.Size(300, 27);
+            cinemaTypeComboBox.TabIndex = 18;
+
+            // position the additional Label and TextBox
+            additionalLabel.Location = new System.Drawing.Point(20, 570);
+            additionalLabel.Size = new System.Drawing.Size(300, 27);
+            additionalTextBox.Location = new System.Drawing.Point(20, 600);
+            additionalTextBox.Size = new System.Drawing.Size(300, 27);
+
+            // backButton
+            back3Button.Location = new System.Drawing.Point(20, 640);
+            back3Button.Name = "backButton";
+            back3Button.Size = new System.Drawing.Size(100, 30);
+            back3Button.TabIndex = 19;
+            back3Button.Text = "Назад";
+            back3Button.UseVisualStyleBackColor = true;
+            back3Button.Click += backButton_Click;
+
+            // saveCinemaButton
+            saveCinemaButton.Location = new System.Drawing.Point(220, 640);
+            saveCinemaButton.Name = "saveCinemaButton";
+            saveCinemaButton.Size = new System.Drawing.Size(100, 30);
+            saveCinemaButton.TabIndex = 20;
+            saveCinemaButton.Text = "Сохранить";
+            saveCinemaButton.UseVisualStyleBackColor = true;
+            saveCinemaButton.Click += saveCinemaButton_Click;
+
+            
+            Controls.Add(addCinemaPanel);
+            ResumeLayout(false);
+        }
 
     #endregion
 }

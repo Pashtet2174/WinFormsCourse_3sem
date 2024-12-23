@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace WinFormsCourse_3sem;
 
-partial class AddVendorForm
+partial class ShowRentsForm
 {
     /// <summary>
     /// Required designer variable.
