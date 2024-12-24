@@ -31,10 +31,17 @@ partial class ShowRentsForm
     /// </summary>
     private void InitializeComponent()
     {
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "Список арендованных фильмов";
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowRentsForm));
+        SuspendLayout();
+        // 
+        // ShowRentsForm
+        // 
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        ClientSize = new System.Drawing.Size(800, 450);
+        Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
+        Text = "Список арендованных фильмов";
+        ResumeLayout(false);
     }
 
     #endregion
