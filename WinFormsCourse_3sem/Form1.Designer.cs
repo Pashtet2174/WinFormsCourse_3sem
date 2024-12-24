@@ -29,6 +29,7 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         openVendorPanelButton = new System.Windows.Forms.Button();
         openFilmPanelButton = new System.Windows.Forms.Button();
         openCinemaPanelButton = new System.Windows.Forms.Button();
@@ -99,11 +100,13 @@ partial class Form1
         Controls.Add(openCinemaPanelButton);
         Controls.Add(openFilmPanelButton);
         Controls.Add(openVendorPanelButton);
-        Text = "Система учёта аренды кинофильмов";
+        Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
         Location = new System.Drawing.Point(19, 19);
         MinimumSize = new System.Drawing.Size(800, 800);
+        Text = "Система учёта аренды кинофильмов";
         ResumeLayout(false);
     }
+    
 
     private System.Windows.Forms.Button ShowRentsButton;
     private System.Windows.Forms.Button openRentPanelButton;

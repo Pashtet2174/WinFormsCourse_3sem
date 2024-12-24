@@ -182,12 +182,6 @@ public partial class Form1 : Form
     
     
     
-    private void OpenShowRentsForm()
-    {
-        // Создание и отображение формы AddVendorForm с передачей сервисов
-        ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
-        showRentsForm.Show();
-    }
     
     private void ShowRentFormButton_Click(object sender, EventArgs e)
     {
@@ -234,6 +228,7 @@ public partial class Form1 : Form
         additionalLabel.Visible = true;
         additionalTextBox.Visible = true;
     }
+
 
     
 }
