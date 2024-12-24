@@ -7,8 +7,7 @@ public class Rent
     private DateTime _startDate;
     private DateTime _endDate;
     private decimal _rentalPrice;
-
-    // Свойства
+    
     public Cinema Cinema
     {
         get => _cinema;

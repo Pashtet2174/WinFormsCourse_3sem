@@ -42,7 +42,8 @@ partial class ShowRentsForm
         Icon = ((System.Drawing.Icon)resources.GetObject("$this.Icon"));
         Text = "Список арендованных фильмов";
         ResumeLayout(false);
+        
     }
-
+   
     #endregion
 }
