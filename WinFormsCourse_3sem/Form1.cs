@@ -18,6 +18,7 @@ public partial class Form1 : Form
         InitializeAddVendorPanel();
         InitializeAddFilmPanel();
         InitializeAddCinemaPanel();
+        InitializeAddRentPanel();
         Load += Form1_Load;
     }
     
@@ -51,12 +52,11 @@ public partial class Form1 : Form
     
     
     
-    
-    
     private void Form1_Load(object sender, EventArgs e)
     {
         UpdateSupplierComboBox();
     }
+    
     private void UpdateSupplierComboBox()
     {
         supplierComboBox.Items.Clear(); // Очищаем старые элементы
@@ -76,14 +76,42 @@ public partial class Form1 : Form
         addVendorPanel.Visible = true;
     }
 
+    private void addFilmButton_Click(object sender, EventArgs e)
+    {
+        foreach (Control control in Controls)
+        {
+            control.Visible = false;
+        }
+        addFilmPanel.Visible = true;
+    }
+    
+    private void addCinemaButton_Click(object sender, EventArgs e)
+    {
+        foreach (Control control in Controls)
+        {
+            control.Visible = false;
+        }
+        addCinemaPanel.Visible = true;
+    }
+    
+    private void addRentButton_Click(object sender, EventArgs e)
+    {
+        foreach (Control control in Controls)
+        {
+            control.Visible = false;
+        }
+        addRentPanel.Visible = true;
+    }
+    
     private void backButton_Click(object sender, EventArgs e)
     {
         addVendorPanel.Visible = false;
         addFilmPanel.Visible = false;
         addCinemaPanel.Visible = false; 
+        addRentPanel.Visible = false;
         foreach (Control control in Controls)
         {
-            if (control != addFilmPanel & control != addVendorPanel & control != addCinemaPanel)
+            if (control != addFilmPanel & control != addVendorPanel & control != addCinemaPanel & control != addRentPanel)
                 control.Visible = true;
         }   
     }
@@ -125,14 +153,7 @@ public partial class Form1 : Form
 
     
 
-    private void addFilmButton_Click(object sender, EventArgs e)
-    {
-        foreach (Control control in Controls)
-        {
-            control.Visible = false;
-        }
-        addFilmPanel.Visible = true;
-    }
+    
 
     private void saveFilmButton_Click (object sender, EventArgs e)
     {
@@ -204,19 +225,17 @@ public partial class Form1 : Form
         
     }
     
-    private void addCinemaButton_Click(object sender, EventArgs e)
-    {
-        foreach (Control control in Controls)
-        {
-            control.Visible = false;
-        }
-        addCinemaPanel.Visible = true;
-    }
+    
     
     private void OpenShowRentsForm()
     {
         // Создание и отображение формы AddVendorForm с передачей сервисов
         ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
         showRentsForm.Show();
+    }
+
+    private void saveRentButton_Click(object sender, EventArgs e)
+    {
+        
     }
 }

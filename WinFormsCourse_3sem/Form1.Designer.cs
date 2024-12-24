@@ -32,11 +32,11 @@ partial class Form1
         addVendorButton = new System.Windows.Forms.Button();
         addFilmButton = new System.Windows.Forms.Button();
         addCinemaButton = new System.Windows.Forms.Button();
+        addRentButton = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // addVendorButton
         // 
-        addVendorButton.Anchor = (AnchorStyles.Left | AnchorStyles.Top);
         addVendorButton.Location = new System.Drawing.Point(51, 77);
         addVendorButton.Name = "addVendorButton";
         addVendorButton.Size = new System.Drawing.Size(135, 73);
@@ -47,7 +47,7 @@ partial class Form1
         // 
         // addFilmButton
         // 
-        addFilmButton.Anchor = (AnchorStyles.Top);
+        addFilmButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
         addFilmButton.Location = new System.Drawing.Point(250, 77);
         addFilmButton.Name = "addFilmButton";
         addFilmButton.Size = new System.Drawing.Size(135, 73);
@@ -58,7 +58,7 @@ partial class Form1
         // 
         // addCinemaButton
         // 
-        addCinemaButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+        addCinemaButton.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
         addCinemaButton.Location = new System.Drawing.Point(450, 77);
         addCinemaButton.Name = "addCinemaButton";
         addCinemaButton.Size = new System.Drawing.Size(135, 73);
@@ -67,12 +67,23 @@ partial class Form1
         addCinemaButton.UseVisualStyleBackColor = true;
         addCinemaButton.Click += addCinemaButton_Click;
         // 
+        // addRentButton
+        // 
+        addRentButton.Location = new System.Drawing.Point(233, 209);
+        addRentButton.Name = "addRentButton";
+        addRentButton.Size = new System.Drawing.Size(187, 111);
+        addRentButton.TabIndex = 3;
+        addRentButton.Text = "Добавить аренду";
+        addRentButton.UseVisualStyleBackColor = true;
+        addRentButton.Click += addRentButton_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.SystemColors.ControlLight;
         ClientSize = new System.Drawing.Size(823, 753);
+        Controls.Add(addRentButton);
         Controls.Add(addCinemaButton);
         Controls.Add(addFilmButton);
         Controls.Add(addVendorButton);
@@ -81,6 +92,7 @@ partial class Form1
         ResumeLayout(false);
     }
 
+    private System.Windows.Forms.Button addRentButton;
     private System.Windows.Forms.Button addCinemaButton;
     private System.Windows.Forms.Button addFilmButton;
     private System.Windows.Forms.Button addVendorButton;
@@ -690,6 +702,71 @@ partial class Form1
 
             
             Controls.Add(addCinemaPanel);
+            ResumeLayout(false);
+        }
+        
+        
+        
+        
+        private System.Windows.Forms.Panel addRentPanel;
+        private System.Windows.Forms.Label cinemaNameRentLabel;
+        private System.Windows.Forms.ComboBox cinemaNameRentComboBox;
+        private System.Windows.Forms.Button saveRentButton;
+        private System.Windows.Forms.Button back4Button;
+        
+        private void InitializeAddRentPanel()
+        {
+            addRentPanel = new System.Windows.Forms.Panel();
+            cinemaNameRentLabel = new Label();
+            cinemaNameRentComboBox = new ComboBox();
+            saveRentButton = new Button();
+            back4Button = new Button();
+            
+            
+            SuspendLayout();
+
+            // addRentPanel
+            addRentPanel.Controls.Add(cinemaNameRentLabel);
+            addRentPanel.Controls.Add(cinemaNameRentComboBox);
+            addRentPanel.Controls.Add(saveRentButton);
+            addRentPanel.Controls.Add(back4Button);
+            addRentPanel.Name = "addRentPanel";
+            addRentPanel.Dock = DockStyle.Fill;
+            addRentPanel.TabIndex = 1;
+            addRentPanel.Visible = false;
+        
+            // cinemaNameRentLabel
+            cinemaNameRentLabel.Location = new System.Drawing.Point(20, 440);
+            cinemaNameRentLabel.Name = "cinemaNameRentLabel";
+            cinemaNameRentLabel.Text = "Кинотеатр";
+            cinemaNameRentLabel.Size = new System.Drawing.Size(300, 27);
+            cinemaNameRentLabel.TabIndex = 0;
+
+            // cinemaNameRentComboBox
+            cinemaNameRentComboBox.Location = new System.Drawing.Point(20, 470);
+            cinemaNameRentComboBox.Name = "cinemaNameRentComboBox";
+            cinemaNameRentComboBox.Size = new System.Drawing.Size(300, 27);
+            cinemaNameRentComboBox.TabIndex = 1;
+            
+            // backButton
+            back4Button.Location = new System.Drawing.Point(20, 640);
+            back4Button.Name = "back4Button";
+            back4Button.Size = new System.Drawing.Size(100, 30);
+            back4Button.TabIndex = 2;
+            back4Button.Text = "Назад";
+            back4Button.UseVisualStyleBackColor = true;
+            back4Button.Click += backButton_Click;
+
+            // saveCinemaButton
+            saveRentButton.Location = new System.Drawing.Point(220, 640);
+            saveRentButton.Name = "saveRentButton";
+            saveRentButton.Size = new System.Drawing.Size(100, 30);
+            saveRentButton.TabIndex = 3;
+            saveRentButton.Text = "Сохранить";
+            saveRentButton.UseVisualStyleBackColor = true;
+            saveRentButton.Click += saveRentButton_Click;
+            
+            Controls.Add(addRentPanel);
             ResumeLayout(false);
         }
 
