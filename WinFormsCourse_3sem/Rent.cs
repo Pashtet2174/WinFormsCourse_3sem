@@ -7,7 +7,6 @@ public class Rent
     private DateTime _startDate;
     private DateTime _endDate;
     private decimal _rentalPrice;
-    private decimal _penalty;
 
     // Свойства
     public Cinema Cinema
@@ -40,19 +39,14 @@ public class Rent
         set => _rentalPrice = value;
     }
 
-    public decimal Penalty
-    {
-        get => _penalty;
-        set => _penalty = value;
-    }
     
-    public Rent(Cinema cinema, Film film, DateTime startDate, DateTime endDate, decimal rentalPrice, decimal penalty)
+    
+    public Rent(Cinema cinema, Film film, DateTime startDate, DateTime endDate, decimal rentalPrice)
     {
         Cinema = cinema;
         Film = film;
         StartDate = startDate;
         EndDate = endDate;
         RentalPrice = rentalPrice;
-        Penalty = penalty;
     }
 }

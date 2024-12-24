@@ -22,52 +22,7 @@ public partial class Form1 : Form
         Load += Form1_Load;
     }
     
-    
-    
-    private void CinemaTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        // Clear the additional field when the selection changes
-        additionalLabel.Text = string.Empty;
-        additionalTextBox.Clear();
-
-        switch (cinemaTypeComboBox.SelectedItem.ToString())
-        {
-            case "Традиционный":
-                additionalLabel.Text = "Тип экрана:";
-                break;
-            case "Под открытым небом":
-                additionalLabel.Text = "Ёмкость парковки:";
-                break;
-            case "4D":
-                additionalLabel.Text = "Эффектные сиденья:";
-                break;
-        }
-
-        // Show the additional field
-        additionalLabel.Visible = true;
-        additionalTextBox.Visible = true;
-    }
-    
-    
-    
-    
-    
-    private void Form1_Load(object sender, EventArgs e)
-    {
-        UpdateSupplierComboBox();
-    }
-    
-    private void UpdateSupplierComboBox()
-    {
-        supplierComboBox.Items.Clear(); // Очищаем старые элементы
-        var vendors = _vendorService.GetVendors(); // Получаем список поставщиков
-        foreach (var vendor in vendors)
-        {
-            supplierComboBox.Items.Add(vendor); // Добавляем каждого поставщика
-        }
-        supplierComboBox.DisplayMember = "Name"; // Указываем, что отображать в списке
-    }
-    private void addVendorButton_Click(object sender, EventArgs e)
+    private void OpenVendorPanelPanelButtonClick(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
         {
@@ -76,7 +31,7 @@ public partial class Form1 : Form
         addVendorPanel.Visible = true;
     }
 
-    private void addFilmButton_Click(object sender, EventArgs e)
+    private void OpenFilmPanelPanelButtonClick(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
         {
@@ -85,7 +40,7 @@ public partial class Form1 : Form
         addFilmPanel.Visible = true;
     }
     
-    private void addCinemaButton_Click(object sender, EventArgs e)
+    private void OpenCinemaPanelPanelButtonClick(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
         {
@@ -94,7 +49,7 @@ public partial class Form1 : Form
         addCinemaPanel.Visible = true;
     }
     
-    private void addRentButton_Click(object sender, EventArgs e)
+    private void OpenRentPanelPanelButtonClick(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
         {
@@ -116,7 +71,7 @@ public partial class Form1 : Form
         }   
     }
 
-    private void saveVendorButton_Click(object sender, EventArgs e)
+    private void AddVendorButtonClick(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(vendorNameTextBox.Text) || 
             string.IsNullOrWhiteSpace(vendorLegalAddressTextBox.Text) || 
@@ -144,18 +99,8 @@ public partial class Form1 : Form
         vendorBankAccountTextBox.Clear();
         vendorINNTextBox.Clear();
     }
-
-    private void saveAndBackButton_Click (object sender, EventArgs e)
-    {
-        
-    }
     
-
-    
-
-    
-
-    private void saveFilmButton_Click (object sender, EventArgs e)
+    private void AddFilmButtonClick (object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(filmNameTextBox.Text) ||
             string.IsNullOrWhiteSpace(filmCategoryTextBox.Text) ||
@@ -164,7 +109,7 @@ public partial class Form1 : Form
             string.IsNullOrWhiteSpace(filmProductionCompanyTextBox.Text) ||
             string.IsNullOrWhiteSpace(filmReleaseYearTextBox.Text) ||
             string.IsNullOrWhiteSpace(filmCostTextBox.Text) ||
-            supplierComboBox.SelectedItem == null)
+            vendorComboBox.SelectedItem == null)
         {
             MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
@@ -191,7 +136,7 @@ public partial class Form1 : Form
         }
 
         // Получение выбранного поставщика
-        Vendor selectedVendor = supplierComboBox.SelectedItem as Vendor;
+        Vendor selectedVendor = vendorComboBox.SelectedItem as Vendor;
 
         if (selectedVendor == null)
         {
@@ -217,13 +162,23 @@ public partial class Form1 : Form
         filmProductionCompanyTextBox.Clear();
         filmReleaseYearTextBox.Clear();
         filmCostTextBox.Clear();
-        supplierComboBox.SelectedIndex = -1;
+        vendorComboBox.SelectedIndex = -1;
     }
-
-    private void saveCinemaButton_Click(object sender, EventArgs e)
+    private void AddCinemaButtonClick(object sender, EventArgs e)
     {
         
     }
+    
+    private void AddRentButtonClick (object sender, EventArgs e)
+    {
+        
+    }
+
+    private void saveAndBackButton_Click (object sender, EventArgs e)
+    {
+        
+    }
+    
     
     
     
@@ -233,9 +188,52 @@ public partial class Form1 : Form
         ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
         showRentsForm.Show();
     }
-
-    private void saveRentButton_Click(object sender, EventArgs e)
+    
+    private void ShowRentFormButton_Click(object sender, EventArgs e)
     {
-        
+        // Создание и отображение формы AddVendorForm с передачей сервисов
+        ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
+        showRentsForm.Show();
     }
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        UpdateSupplierComboBox();
+    }
+    
+    private void UpdateSupplierComboBox()
+    {
+        vendorComboBox.Items.Clear(); // Очищаем старые элементы
+        var vendors = _vendorService.GetVendors(); // Получаем список поставщиков
+        foreach (var vendor in vendors)
+        {
+            vendorComboBox.Items.Add(vendor); // Добавляем каждого поставщика
+        }
+        vendorComboBox.DisplayMember = "Name"; // Указываем, что отображать в списке
+    }
+    
+    private void CinemaTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        // Clear the additional field when the selection changes
+        additionalLabel.Text = string.Empty;
+        additionalTextBox.Clear();
+
+        switch (cinemaTypeComboBox.SelectedItem.ToString())
+        {
+            case "Традиционный":
+                additionalLabel.Text = "Тип экрана:";
+                break;
+            case "Под открытым небом":
+                additionalLabel.Text = "Ёмкость парковки:";
+                break;
+            case "4D":
+                additionalLabel.Text = "Эффектные сиденья:";
+                break;
+        }
+
+        // Show the additional field
+        additionalLabel.Visible = true;
+        additionalTextBox.Visible = true;
+    }
+
+    
 }
