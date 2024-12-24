@@ -99,6 +99,7 @@ partial class Form1
         Controls.Add(openCinemaPanelButton);
         Controls.Add(openFilmPanelButton);
         Controls.Add(openVendorPanelButton);
+        Text = "Система учёта аренды кинофильмов";
         Location = new System.Drawing.Point(19, 19);
         MinimumSize = new System.Drawing.Size(800, 800);
         ResumeLayout(false);
@@ -747,24 +748,19 @@ partial class Form1
         //
         cinemaTypeComboBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
         cinemaTypeComboBox.Location = new System.Drawing.Point(20, 530);
-        cinemaTypeComboBox.Name = "cinemaTypeComboBox";
         cinemaTypeComboBox.Size = new System.Drawing.Size(300, 27);
         cinemaTypeComboBox.TabIndex = 18;
         //
         // additionalLabel
         //
         additionalLabel.Location = new System.Drawing.Point(20, 570);
-        additionalLabel.Name = "additionalLabel";
         additionalLabel.Size = new System.Drawing.Size(300, 27);
-        additionalLabel.TabIndex = 19;
         //
         // additionalTextBox
         //
         additionalTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
         additionalTextBox.Location = new System.Drawing.Point(20, 600);
-        additionalTextBox.Name = "additionalTextBox";
         additionalTextBox.Size = new System.Drawing.Size(300, 27);
-        additionalTextBox.TabIndex = 20;
         //
         // back3Button
         //
@@ -795,6 +791,14 @@ partial class Form1
     private System.Windows.Forms.Panel addRentPanel;
     private System.Windows.Forms.Label cinemaNameRentLabel;
     private System.Windows.Forms.ComboBox cinemaNameRentComboBox;
+    private System.Windows.Forms.Label filmRentLabel;
+    private System.Windows.Forms.ComboBox filmRentComboBox;
+    private System.Windows.Forms.Label startDateRentLabel;
+    private System.Windows.Forms.DateTimePicker startDateRentPicker;
+    private System.Windows.Forms.Label endDateRentLabel;
+    private System.Windows.Forms.DateTimePicker endDateRentPicker;
+    private System.Windows.Forms.Label rentalPriceRentLabel;
+    private System.Windows.Forms.TextBox rentalPriceRentTextBox;
     private System.Windows.Forms.Button addRentButton;
     private System.Windows.Forms.Button back4Button;
     
@@ -803,6 +807,14 @@ partial class Form1
         addRentPanel = new System.Windows.Forms.Panel();
         cinemaNameRentLabel = new Label();
         cinemaNameRentComboBox = new ComboBox();
+        filmRentLabel = new Label();
+        filmRentComboBox = new ComboBox();
+        startDateRentLabel = new Label();
+        startDateRentPicker = new DateTimePicker();
+        endDateRentLabel = new Label();
+        endDateRentPicker = new DateTimePicker();
+        rentalPriceRentLabel = new Label();
+        rentalPriceRentTextBox = new TextBox();
         addRentButton = new Button();
         back4Button = new Button();
         
@@ -812,6 +824,14 @@ partial class Form1
         //
         addRentPanel.Controls.Add(cinemaNameRentLabel);
         addRentPanel.Controls.Add(cinemaNameRentComboBox);
+        addRentPanel.Controls.Add(filmRentLabel);
+        addRentPanel.Controls.Add(filmRentComboBox);
+        addRentPanel.Controls.Add(startDateRentLabel);
+        addRentPanel.Controls.Add(startDateRentPicker);
+        addRentPanel.Controls.Add(endDateRentLabel);
+        addRentPanel.Controls.Add(endDateRentPicker);
+        addRentPanel.Controls.Add(rentalPriceRentLabel);
+        addRentPanel.Controls.Add(rentalPriceRentTextBox);
         addRentPanel.Controls.Add(addRentButton);
         addRentPanel.Controls.Add(back4Button);
         addRentPanel.Name = "addRentPanel";
@@ -821,7 +841,7 @@ partial class Form1
         //
         // cinemaNameRentLabel
         //
-        cinemaNameRentLabel.Location = new System.Drawing.Point(20, 440);
+        cinemaNameRentLabel.Location = new System.Drawing.Point(20, 20);
         cinemaNameRentLabel.Name = "cinemaNameRentLabel";
         cinemaNameRentLabel.Text = "Кинотеатр";
         cinemaNameRentLabel.Size = new System.Drawing.Size(300, 27);
@@ -829,27 +849,95 @@ partial class Form1
         //
         // cinemaNameRentComboBox
         //
-        cinemaNameRentComboBox.Location = new System.Drawing.Point(20, 470);
+        cinemaNameRentComboBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+        cinemaNameRentComboBox.Location = new System.Drawing.Point(20, 50);
         cinemaNameRentComboBox.Name = "cinemaNameRentComboBox";
         cinemaNameRentComboBox.Size = new System.Drawing.Size(300, 27);
         cinemaNameRentComboBox.TabIndex = 1;
         //
+        // filmRentLabel
+        //
+        filmRentLabel.Location = new System.Drawing.Point(20, 90);
+        filmRentLabel.Name = "filmRentLabel";
+        filmRentLabel.Text = "Фильм";
+        filmRentLabel.Size = new System.Drawing.Size(300, 27);
+        filmRentLabel.TabIndex = 2;
+        //
+        // filmRentComboBox
+        //
+        filmRentComboBox.Anchor = ( AnchorStyles.Top |  AnchorStyles.Left | AnchorStyles.Right);
+        filmRentComboBox.Location = new System.Drawing.Point(20, 120);
+        filmRentComboBox.Name = "filmRentComboBox";
+        filmRentComboBox.Size = new System.Drawing.Size(300, 27);
+        filmRentComboBox.TabIndex = 3;
+        //
+        // startDateRentLabel
+        //
+        startDateRentLabel.Location = new System.Drawing.Point(20, 160);
+        startDateRentLabel.Name = "startDateRentLabel";
+        startDateRentLabel.Text = "Дата начала демонстрации";
+        startDateRentLabel.Size = new System.Drawing.Size(300, 27);
+        startDateRentLabel.TabIndex = 4;
+        //
+        // startDateRentPicker
+        //
+        startDateRentPicker.Anchor = (AnchorStyles.Top | AnchorStyles.Left );
+        startDateRentPicker.Location = new System.Drawing.Point(20, 190);
+        startDateRentPicker.Name = "startDateRentPicker";
+        startDateRentPicker.Size = new System.Drawing.Size(300, 27);
+        startDateRentPicker.TabIndex = 5;
+        //
+        // endDateRentLabel
+        //
+        endDateRentLabel.Location = new System.Drawing.Point(20, 230);
+        endDateRentLabel.Name = "endDateRentLabel";
+        endDateRentLabel.Text = "Дата окончания демонстрации";
+        endDateRentLabel.Size = new System.Drawing.Size(300, 27);
+        endDateRentLabel.TabIndex = 6;
+        //
+        // endDateRentPicker
+        //
+        endDateRentPicker.Anchor = (AnchorStyles.Top | AnchorStyles.Left );
+        endDateRentPicker.Location = new System.Drawing.Point(20, 260);
+        endDateRentPicker.Name = "endDateRentPicker";
+        endDateRentPicker.Size = new System.Drawing.Size(300, 27);
+        endDateRentPicker.TabIndex = 7;
+        //
+        // rentalPriceRentLabel
+        //
+        rentalPriceRentLabel.Location = new System.Drawing.Point(20, 300);
+        rentalPriceRentLabel.Name = "rentalPriceRentLabel";
+        rentalPriceRentLabel.Text = "Цена аренды";
+        rentalPriceRentLabel.Size = new System.Drawing.Size(300, 27);
+        rentalPriceRentLabel.TabIndex = 8;
+        //
+        // rentalPriceRentTextBox
+        //
+        rentalPriceRentTextBox.Anchor = ( AnchorStyles.Top |  AnchorStyles.Left | AnchorStyles.Right);
+        rentalPriceRentTextBox.Location = new System.Drawing.Point(20, 330);
+        rentalPriceRentTextBox.Name = "rentalPriceRentTextBox";
+        rentalPriceRentTextBox.Size = new System.Drawing.Size(300, 27);
+        rentalPriceRentTextBox.TabIndex = 9;
+        //
+        //
         // backButton
         //
-        back4Button.Location = new System.Drawing.Point(20, 640);
+        back4Button.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
+        back4Button.Location = new System.Drawing.Point(20, 370);
         back4Button.Name = "back4Button";
-        back4Button.Size = new System.Drawing.Size(100, 30);
-        back4Button.TabIndex = 2;
+        back4Button.Size = new System.Drawing.Size(120, 70);
+        back4Button.TabIndex = 10;
         back4Button.Text = "Назад";
         back4Button.UseVisualStyleBackColor = true;
         back4Button.Click += backButton_Click;
         //
         // addCinemaButton
         //
-        addRentButton.Location = new System.Drawing.Point(220, 640);
+        addRentButton.Anchor = (AnchorStyles.Bottom);
+        addRentButton.Location = new System.Drawing.Point(220, 3700);
         addRentButton.Name = "addRentButton";
-        addRentButton.Size = new System.Drawing.Size(100, 30);
-        addRentButton.TabIndex = 3;
+        addRentButton.Size = new System.Drawing.Size(120, 70);
+        addRentButton.TabIndex = 11;
         addRentButton.Text = "Добавить";
         addRentButton.UseVisualStyleBackColor = true;
         addRentButton.Click += AddRentButtonClick;
