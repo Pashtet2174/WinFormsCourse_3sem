@@ -10,18 +10,33 @@ public partial class Form1 : Form
     private readonly IRentService _rentService;
     public Form1(ICinemaService cinemaService, IFilmService filmService, IVendorService vendorService,IRentService rentService)
     {
+        
         _cinemaService = cinemaService;
         _filmService = filmService;
         _vendorService = vendorService;
         _rentService = rentService;
+        _cinemaService.LoadFromJson();
+        _filmService.LoadFromJson();
+        _vendorService.LoadFromJson();
+        _rentService.LoadFromJson();
         InitializeComponent();
         InitializeAddVendorPanel();
         InitializeAddFilmPanel();
         InitializeAddCinemaPanel(); 
         InitializeAddRentPanel();
         Load += Form1_Load;
+        FormClosing += MainForm_FormClosing;
     }
     
+    private void MainForm_FormClosing(object sender, EventArgs e)
+    {
+        // Сохраняем данные в JSON при нажатии кнопки
+        _cinemaService.SaveToJson();
+        _filmService.SaveToJson();
+        _vendorService.SaveToJson();
+        _rentService.SaveToJson();
+        
+    }
     private void OpenVendorPanelPanelButtonClick(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
