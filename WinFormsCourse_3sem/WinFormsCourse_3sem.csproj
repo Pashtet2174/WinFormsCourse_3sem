@@ -45,6 +45,15 @@
       <Compile Update="IVendorService.cs">
         <DependentUpon>Vendor.cs</DependentUpon>
       </Compile>
+      <Compile Update="VendorValidator.cs">
+        <DependentUpon>Vendor.cs</DependentUpon>
+      </Compile>
+      <Compile Update="FilmValidator.cs">
+        <DependentUpon>Film.cs</DependentUpon>
+      </Compile>
+      <Compile Update="CinemaValidator.cs">
+        <DependentUpon>Cinema.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

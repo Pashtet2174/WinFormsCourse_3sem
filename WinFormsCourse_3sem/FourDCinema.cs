@@ -1,17 +1,26 @@
+using WinFormsCourse_3sem;
+
 namespace Course_3sem;
 
 public class FourDCinema : Cinema
 {
-    public string SeatsWithEffects { get; set; } 
+    private string _effect;
 
-    public FourDCinema(string name, string address, string phone, int seatCapacity, string director, string owner, string bankName, string bankAccount, string innCinema, string seatsWithEffects)
-        : base(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, innCinema)
+    public string Effect
     {
-        SeatsWithEffects = seatsWithEffects;
+        get { return _effect; }
+        set
+        {
+            if(!CinemaValidator.ValidateEffect(value))
+                throw new ArgumentException("Некорректное название эффекта. Оно должно содержать до 100 символов.");
+            _effect = value;
+        }
     }
 
-    public override void DisplayCinemaType()
+    public FourDCinema(string name, string address, string phone, int seatCapacity, string director, string owner, string bankName, string bankAccount, string inn, string cinemaType,  string effect)
+        : base(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, inn, cinemaType)
     {
-        Console.WriteLine($"Кинотеатр {Name} - 4D.");
+        Effect = effect;
     }
+    
 }

@@ -1,3 +1,5 @@
+using WinFormsCourse_3sem;
+
 namespace Course_3sem;
 
 public class Vendor
@@ -11,32 +13,57 @@ public class Vendor
 
     public string Name
     {
-        get { return _name; }
-        set {_name = value;}
+        get { return _name;}
+        set
+        {
+            if (!VendorValidator.ValidateName(value))
+                throw new ArgumentException("Некорректное название. Оно не должно быть пустым и должно содержать до 100 символов.");
+            _name = value;
+        }
     }
-    
+
     public string LegalAddress
     {
-        get => _legalAddress;
-        set => _legalAddress = value;
+        get { return _legalAddress;}
+        set
+        {
+            if (!VendorValidator.ValidateLegalAddress(value))
+                throw new ArgumentException("Некорректный юридический адрес. Он не должен быть пустым и должен содержать до 200 символов.");
+            _legalAddress = value;
+        }
     }
 
     public string BankName
     {
-        get => _bank;
-        set => _bank = value;
+        get { return _bank; }
+        set
+        {
+            if (!VendorValidator.ValidateBankName(value))
+                throw new ArgumentException("Некорректное название банка. Оно должно содержать до 100 символов.");
+            _bank = value;
+        }
     }
 
-    public string BankAccount
+    public string BankAccountNumber
     {
-        get => _bankAccountNumber;
-        set => _bankAccountNumber = value;
+        get { return _bankAccountNumber; }
+        set
+        {
+            if (!VendorValidator.ValidateBankAccountNumber(value))
+                throw new ArgumentException("Некорректный номер банковского счёта. Он должен содержать 20 цифр.");
+            _bankAccountNumber = value;
+        }
     }
 
     public string Inn
     {
-        get => _inn;
-        set => _inn = value;
+        get { return _inn; }
+        set
+        {
+            if (!VendorValidator.ValidateInn(value))
+                throw new ArgumentException("Некорректный ИНН. Он должен содержать 10 или 12 цифр.");
+            _inn = value;
+        }
     }
     public List<Film> Films
     {
@@ -54,7 +81,7 @@ public class Vendor
         Name = name;
         LegalAddress = legalAddress;
         BankName = bank;
-        BankAccount = bankAccountNumber;
+        BankAccountNumber = bankAccountNumber;
         Inn = inn;
         Films = new List<Film>();
 

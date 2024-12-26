@@ -471,7 +471,7 @@ partial class Form1
         filmCostTextBox.Size = new System.Drawing.Size(300, 27);
         filmCostTextBox.TabIndex = 13;
         //
-        // supplierLabel
+        // vendorLabel
         //
         vendorLabel.Location = new System.Drawing.Point(20, 440);
         vendorLabel.Name = "vendorLabel";
@@ -479,7 +479,7 @@ partial class Form1
         vendorLabel.Size = new System.Drawing.Size(300, 27);
         vendorLabel.TabIndex = 14;
         //
-        // supplierComboBox
+        // vendorComboBox
         //
         vendorComboBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
         vendorComboBox.Location = new System.Drawing.Point(20, 470);
@@ -537,6 +537,7 @@ partial class Form1
     private System.Windows.Forms.ComboBox cinemaTypeComboBox;
     private System.Windows.Forms.Label additionalLabel;
     private System.Windows.Forms.TextBox additionalTextBox;
+    private System.Windows.Forms.Label cinemaTypeLabel;
         
 
     private void InitializeAddCinemaPanel()
@@ -562,18 +563,16 @@ partial class Form1
         cinemaInnTextBox = new TextBox();
         back3Button = new System.Windows.Forms.Button();
         addCinemaButton = new System.Windows.Forms.Button();
+        cinemaTypeLabel = new Label();
         cinemaTypeComboBox = new ComboBox();
         additionalLabel = new Label();
         additionalTextBox = new TextBox();
-        cinemaTypeComboBox.Items.Add("Традиционный кинотеатр");
-        cinemaTypeComboBox.Items.Add("Кинотеатр под открытым небом");
-        cinemaTypeComboBox.Items.Add("4D кинотеатр ");
-        cinemaTypeComboBox.SelectedIndexChanged += CinemaTypeComboBox_SelectedIndexChanged;
         
         SuspendLayout();
         // 
         // addCinemaPanel
         // 
+        addCinemaPanel.Controls.Add(cinemaTypeLabel);
         addCinemaPanel.Controls.Add(cinemaTypeComboBox);
         addCinemaPanel.Controls.Add(additionalLabel); 
         addCinemaPanel.Controls.Add(additionalTextBox); 
@@ -747,31 +746,41 @@ partial class Form1
         cinemaInnTextBox.Size = new System.Drawing.Size(300, 27);
         cinemaInnTextBox.TabIndex = 17;
         //
+        // cinemaTypeLabel
+        //
+        cinemaTypeLabel.Location = new System.Drawing.Point(20, 560);
+        cinemaTypeLabel.Name = "cinemaTypeLabel";
+        cinemaTypeLabel.Text = "Тип кинотеатра";
+        cinemaTypeLabel.Size = new System.Drawing.Size(300, 27);
+        cinemaTypeLabel.TabIndex = 18;
+        //
         // cinemaTypeComboBox
         //
         cinemaTypeComboBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
-        cinemaTypeComboBox.Location = new System.Drawing.Point(20, 530);
+        cinemaTypeComboBox.Location = new System.Drawing.Point(20, 590);
         cinemaTypeComboBox.Size = new System.Drawing.Size(300, 27);
-        cinemaTypeComboBox.TabIndex = 18;
+        cinemaTypeComboBox.TabIndex = 19;
+        cinemaTypeComboBox.Items.Add("Традиционный кинотеатр");
+        cinemaTypeComboBox.Items.Add("Кинотеатр под открытым небом");
+        cinemaTypeComboBox.Items.Add("4D кинотеатр");
+        cinemaTypeComboBox.SelectedIndexChanged += CinemaTypeComboBox_SelectedIndexChanged;
         //
         // additionalLabel
         //
-        additionalLabel.Location = new System.Drawing.Point(20, 570);
+        additionalLabel.Location = new System.Drawing.Point(20, 620);
         additionalLabel.Size = new System.Drawing.Size(300, 27);
         //
         // additionalTextBox
         //
-        additionalTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
-        additionalTextBox.Location = new System.Drawing.Point(20, 600);
+        additionalTextBox.Location = new System.Drawing.Point(20, 650);
         additionalTextBox.Size = new System.Drawing.Size(300, 27);
         //
         // back3Button
         //
         back3Button.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-        back3Button.Location = new System.Drawing.Point(20, 640);
+        back3Button.Location = new System.Drawing.Point(20, 680);
         back3Button.Name = "back3Button";
         back3Button.Size = new System.Drawing.Size(100, 30);
-        back3Button.TabIndex = 21;
         back3Button.Text = "Назад";
         back3Button.UseVisualStyleBackColor = true;
         back3Button.Click += backButton_Click;
@@ -779,10 +788,9 @@ partial class Form1
         // addCinemaButton
         //
         addCinemaButton.Anchor = (AnchorStyles.Bottom );
-        addCinemaButton.Location = new System.Drawing.Point(500, 640);
+        addCinemaButton.Location = new System.Drawing.Point(500, 680);
         addCinemaButton.Name = "addCinemaButton";
         addCinemaButton.Size = new System.Drawing.Size(100, 30);
-        addCinemaButton.TabIndex = 22;
         addCinemaButton.Text = "Сохранить";
         addCinemaButton.UseVisualStyleBackColor = true;
         addCinemaButton.Click += AddCinemaButtonClick;

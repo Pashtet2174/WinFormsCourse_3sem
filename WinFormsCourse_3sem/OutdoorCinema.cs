@@ -1,17 +1,25 @@
+using WinFormsCourse_3sem;
+
 namespace Course_3sem;
 
 public class OutdoorCinema : Cinema
 {
-    public int ParcingCapacity { get; set; }
-
-    public OutdoorCinema(string name, string address, string phone, int seatCapacity,  string direсtor, string owner,  string bankName, string bankAccount, string innCinema, int parcingCapacity )
-        : base(name, address, phone, seatCapacity,direсtor, owner, bankName, bankAccount, innCinema)
+    private int _parkingCapacity;
+    public int ParkingCapacity
     {
-        ParcingCapacity = parcingCapacity;
+        get { return _parkingCapacity; }
+        set
+        {
+            if(!CinemaValidator.ValidateParkingCapacity(value))
+                throw new ArgumentException("Некорректное количество мест. Оно должно быть не более 100.");
+            _parkingCapacity = value;
+        }
     }
 
-    public override void DisplayCinemaType()
+    public OutdoorCinema(string name, string address, string phone, int seatCapacity,  string direсtor, string owner,  string bankName, string bankAccount, string innCinema,string cinemaType,  int parkingCapacity )
+        : base(name, address, phone, seatCapacity,direсtor, owner, bankName, bankAccount, innCinema, cinemaType)
     {
-        Console.WriteLine($"Кинотеатр {Name} - Под открытым небом.");
+        ParkingCapacity = parkingCapacity;
     }
+    
 }

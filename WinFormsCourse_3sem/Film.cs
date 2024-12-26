@@ -1,3 +1,5 @@
+using WinFormsCourse_3sem;
+
 namespace Course_3sem;
 
 public class Film
@@ -13,50 +15,85 @@ public class Film
 
     public string Name
     {
-        get => _name;
-        set => _name = value; // Уникальное поле, изменяется только через конструктор
+        get { return _name; }
+        set
+        {
+            if (!FilmValidator.ValidateName(value))
+                throw new ArgumentException("Некорректное название фильма. Оно должно содержать до 100 символов.");
+            _name = value;
+        }
     }
 
     public string Category
     {
-        get => _category;
-        set => _category = value;
+        get { return _category; }
+        set
+        {
+            if (!FilmValidator.ValidateCategory(value))
+                throw new ArgumentException("Некорректная категория фильма. Она должна содержать до 50 символов.");
+            _category = value;
+        }
     }
 
     public string Scriptwriter
     {
-        get => _scriptwriter;
-        set => _scriptwriter = value;
+        get { return _scriptwriter; }
+        set
+        {
+            if (!FilmValidator.ValidateScriptwriter(value))
+                throw new ArgumentException("Некорректное автор сценария. Оно должно содержать до 100 символов.");
+            _scriptwriter = value;
+        }
     }
 
     public string ProductionDirector
     {
-        get => _productionDirector;
-        set => _productionDirector = value;
+        get { return _productionDirector; }
+        set
+        {
+            if (!FilmValidator.ValidateProductionDirector(value))
+                throw new ArgumentException("Некорректное имя режиссёра-постановщика. Оно должно содержать до 100 символов.");
+            _productionDirector = value;
+        }
     }
 
     public string ProductionCompany
     {
-        get => _productionCompany;
-        set => _productionCompany = value;
+        get { return _productionCompany; }
+        set
+        {
+            if (!FilmValidator.ValidateProductionCompany(value))
+                throw new ArgumentException("Некорректное название компании-производителя. Оно должно содержать до 100 символов.");
+            _productionCompany = value;
+        }
     }
 
     public int ReleaseYear
     {
-        get => _releaseYear;
-        set => _releaseYear = value;
-    }
-
-    public  Vendor Vendor
-    {
-        get => _vendor;
-        set => _vendor = value;
+        get { return _releaseYear; }
+        set
+        {
+            if (!FilmValidator.ValidateReleaseYear(value))
+                throw new ArgumentException("Некорректный год выпуска. Он должен быть не позже текущего года.");
+            _releaseYear = value;
+        }
     }
 
     public decimal Cost
     {
-        get => _cost;
-        set => _cost = value;
+        get {return _cost;}
+        set
+        {
+            if (!FilmValidator.ValidateCost(value))
+                throw new ArgumentException("Некорректная стоимость. Она должна быть больше 0.");
+            _cost = value;
+        }
+    }
+
+    public Vendor Vendor
+    {
+        get { return _vendor; }
+        set => _vendor = value ?? throw new ArgumentNullException("Поставщик не может быть null.");
     }
 
     public Film(string name, string category, string scriptwriter, string productionDirector, string productionCompany,

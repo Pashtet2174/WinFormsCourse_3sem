@@ -1,3 +1,5 @@
+using WinFormsCourse_3sem;
+
 namespace Course_3sem;
 
 public class Rent
@@ -10,35 +12,38 @@ public class Rent
     
     public Cinema Cinema
     {
-        get => _cinema;
-        set => _cinema = value;
+        get { return _cinema; }
+        set => _cinema = value ?? throw new ArgumentNullException("Кинотеатр не может быть null.");
     }
 
     public Film Film
     {
-        get => _film;
-        set => _film = value;
+        get { return _film; }
+        set => _film = value ?? throw new ArgumentNullException("Фильм не может быть null.");
     }
 
     public DateTime StartDate
     {
-        get => _startDate;
-        set => _startDate = value;
+        get { return _startDate; }
+        set { _startDate = value; }
     }
 
     public DateTime EndDate
     {
-        get => _endDate;
-        set => _endDate = value;
+        get { return _endDate; }
+        set { _endDate = value; }
     }
 
     public decimal RentalPrice
     {
-        get => _rentalPrice;
-        set => _rentalPrice = value;
+        get { return _rentalPrice; }
+        set
+        {
+            if (!RentValidator.ValidateRentalPrice(value))
+                throw new ArgumentException("Некорректная стоимость аренды. Она должна быть больше 0.");
+            _rentalPrice = value;
+        }
     }
-
-    
     
     public Rent(Cinema cinema, Film film, DateTime startDate, DateTime endDate, decimal rentalPrice)
     {

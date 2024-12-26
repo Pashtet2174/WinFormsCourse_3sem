@@ -1,72 +1,124 @@
+using WinFormsCourse_3sem;
+
 namespace Course_3sem;
 
 public abstract class Cinema 
 {
     private string _name;
+    private string _cinemaType;
     private string _address;
     private string _phone;
     private int _seatCapacity;
     private string _director;
     private string _owner;
     private string _bankName; 
-    private string _bankAccount;
-    private string _innCinema;
+    private string _bankAccountNumber;
+    private string _inn;
 
     public string Name
     {
-        get => _name;
-        set => _name = value; // Уникальное поле, изменяется только через конструктор
+        get { return _name; }
+        set
+        {
+            if (!CinemaValidator.ValidateName(value))
+                throw new ArgumentException("Некорректное название кинотеатра. Оно должно содержать до 100 символов.");
+            _name = value;
+        }
     }
-
+    public string CinemaType
+    {
+        get { return _cinemaType; }
+        set
+        {
+            _cinemaType = value;
+        }
+    }
     public string Address
     {
-        get => _address;
-        set => _address = value;
+        get { return _address; }
+        set
+        {
+            if (!CinemaValidator.ValidateAddress(value))
+                throw new ArgumentException("Некорректный адрес кинотеатра. Он должен содержать до 200 символов.");
+            _address = value;
+        }
     }
-
     public string Phone
     {
-        get => _phone;
-        set => _phone = value;
+        get { return _phone; }
+        set
+        {
+            if (!CinemaValidator.ValidatePhone(value))
+                throw new ArgumentException("Некорректный номер телефона. Он должен содержать 10 цифр.");
+            _phone = value;
+        }
     }
-
     public int SeatCapacity
     {
-        get => _seatCapacity;
-        set => _seatCapacity = value;
+        get { return _seatCapacity; }
+        set
+        {
+            if (!CinemaValidator.ValidateSeatCapacity(value))
+                throw new ArgumentException("Некорректная вместимость. Она должна быть больше 0 и не превышать 10000.");
+            _seatCapacity = value;
+        }
     }
-
     public string Director
     {
-        get => _director;
-        set => _director = value;
+        get { return _director; }
+        set
+        {
+            if (!CinemaValidator.ValidateDirector(value))
+                throw new ArgumentException("Некорректное имя директора. Оно должно содержать до 100 символов.");
+            _director = value;
+        }
     }
 
     public string Owner
     {
-        get => _owner;
-        set => _owner = value;
+        get { return _owner; }
+        set
+        {
+            if (!CinemaValidator.ValidateOwner(value))
+                throw new ArgumentException("Некорректное имя владельца. Оно должно содержать до 100 символов.");
+            _owner = value;
+        }
     }
 
     public string BankName
     {
-        get => _bankName;
-        set => _bankName = value;
+        get { return _bankName; }
+        set
+        {
+            if (!CinemaValidator.ValidateBankName(value))
+                throw new ArgumentException("Некорректное название банка. Оно должно содержать до 100 символов.");
+            _bankName = value;
+        }
     }
 
-    public string BankAccount
+    public string BankAccountNumber
     {
-        get => _bankAccount;
-        set => _bankAccount = value;
+        get { return _bankAccountNumber; }
+        set
+        {
+            if (!CinemaValidator.ValidateBankAccountNumber(value))
+                throw new ArgumentException("Некорректный номер банковского счёта. Он должен содержать 20 цифр.");
+            _bankAccountNumber = value;
+        }
     }
 
     public string Inn
     {
-        get => _innCinema;
-        set => _innCinema = value;
+        get { return _inn; }
+        set
+        {
+            if (!CinemaValidator.ValidateInn(value))
+                throw new ArgumentException("Некорректный ИНН. Он должен содержать 10 или 12 символов.");
+            _inn = value;
+        }
     }
 
-    public Cinema(string name, string address, string phone, int seatCapacity, string director, string owner, string bankName, string bankAccount, string innCinema)
+    public Cinema(string name, string address, string phone, int seatCapacity, string director, string owner, string bankName, string bankAccountNumber, string inn, string cinemaType)
     {
         Name = name;
         Address = address;
@@ -75,11 +127,10 @@ public abstract class Cinema
         Director = director;
         Owner = owner;
         BankName = bankName;
-        BankAccount = bankAccount;
-        Inn = innCinema;
+        BankAccountNumber = bankAccountNumber;
+        Inn = inn;
+        CinemaType = cinemaType;
     }
     
-    
-    public abstract void DisplayCinemaType();
 }
 
