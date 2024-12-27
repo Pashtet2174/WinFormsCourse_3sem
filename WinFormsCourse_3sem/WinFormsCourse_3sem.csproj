@@ -24,20 +24,11 @@
       <Compile Update="FilmService.cs">
         <DependentUpon>Film.cs</DependentUpon>
       </Compile>
-      <Compile Update="FourDCinema.cs">
-        <DependentUpon>Cinema.cs</DependentUpon>
-      </Compile>
       <Compile Update="IFilmService.cs">
         <DependentUpon>Film.cs</DependentUpon>
       </Compile>
       <Compile Update="IRentService.cs">
         <DependentUpon>Rent.cs</DependentUpon>
-      </Compile>
-      <Compile Update="TraditionalCinema.cs">
-        <DependentUpon>Cinema.cs</DependentUpon>
-      </Compile>
-      <Compile Update="OutdoorCinema.cs">
-        <DependentUpon>Cinema.cs</DependentUpon>
       </Compile>
       <Compile Update="ICinemaService.cs">
         <DependentUpon>Cinema.cs</DependentUpon>
@@ -54,6 +45,13 @@
       <Compile Update="CinemaValidator.cs">
         <DependentUpon>Cinema.cs</DependentUpon>
       </Compile>
+      <Compile Update="RentValidator.cs">
+        <DependentUpon>Rent.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

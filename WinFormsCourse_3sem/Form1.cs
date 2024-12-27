@@ -8,35 +8,128 @@ public partial class Form1 : Form
     private readonly IFilmService _filmService;
     private readonly IVendorService _vendorService;
     private readonly IRentService _rentService;
+    
     public Form1(ICinemaService cinemaService, IFilmService filmService, IVendorService vendorService,IRentService rentService)
     {
         
-        _cinemaService = cinemaService;
-        _filmService = filmService;
-        _vendorService = vendorService;
-        _rentService = rentService;
-        _cinemaService.LoadFromJson();
-        _filmService.LoadFromJson();
-        _vendorService.LoadFromJson();
-        _rentService.LoadFromJson();
+        _cinemaService = cinemaService ?? throw new ArgumentNullException(nameof(cinemaService));
+        _filmService = filmService ?? throw new ArgumentNullException(nameof(filmService));
+        _vendorService = vendorService ?? throw new ArgumentNullException(nameof(vendorService));
+        _rentService = rentService ?? throw new ArgumentNullException(nameof(rentService));
         InitializeComponent();
         InitializeAddVendorPanel();
         InitializeAddFilmPanel();
         InitializeAddCinemaPanel(); 
         InitializeAddRentPanel();
         Load += Form1_Load;
-        FormClosing += MainForm_FormClosing;
+        FormClosing += Form1_FormClosing;
     }
     
-    private void MainForm_FormClosing(object sender, EventArgs e)
+    private  void Form1_Load(object sender, EventArgs e)
     {
-        // Сохраняем данные в JSON при нажатии кнопки
-        _cinemaService.SaveToJson();
-        _filmService.SaveToJson();
-        _vendorService.SaveToJson();
-        _rentService.SaveToJson();
-        
+        LoadData();
+        UpdateSupplierComboBox();   
+        UpdateFilmComboBox();
+        UpdateCinemaComboBox();
     }
+    
+   
+    
+    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        SaveData();
+    }
+    private async void LoadData()
+    {
+        var data = await FileManagement.GetFromFileAsync();
+
+        if (data == null)
+        {
+            Console.WriteLine("Data loaded from file is null.");
+            return;
+        }
+
+        if (data.Vendors != null)
+        {
+            foreach (var vendor in data.Vendors)
+            {
+                if (vendor == null)
+                {
+                    Console.WriteLine("A vendor in the data is null.");
+                    continue;
+                }
+                _vendorService.AddVendor(vendor);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Vendors list is null.");
+        }
+
+        if (data.Films != null)
+        {
+            foreach (var film in data.Films)
+            {
+                if (film == null)
+                {
+                    Console.WriteLine("A film in the data is null.");
+                    continue;
+                }
+                _filmService.AddFilm(film);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Films list is null.");
+        }
+
+        if (data.Cinemas != null)
+        {
+            foreach (var cinema in data.Cinemas)
+            {
+                if (cinema == null)
+                {
+                    Console.WriteLine("A cinema in the data is null.");
+                    continue;
+                }
+                _cinemaService.AddCinema(cinema);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Cinemas list is null.");
+        }
+
+        if (data.Rents != null)
+        {
+            foreach (var rent in data.Rents)
+            {
+                if (rent == null)
+                {
+                    Console.WriteLine("A rent in the data is null.");
+                    continue;
+                }
+                _rentService.AddRent(rent);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Rents list is null.");
+        }
+    }
+
+    private async void SaveData()
+    {
+        var data = new DataContainer
+        {
+            Vendors = _vendorService.GetVendors(),
+            Films = _filmService.GetFilms(),
+            Cinemas = _cinemaService.GetCinemas(),
+            Rents = _rentService.GetRents()
+        };
+        await FileManagement.SaveToFileAsync(data);
+    }
+    
     private void OpenVendorPanelPanelButtonClick(object sender, EventArgs e)
     {
         foreach (Control control in Controls)
@@ -44,6 +137,7 @@ public partial class Form1 : Form
             control.Visible = false;
         }
         addVendorPanel.Visible = true;
+        
     }
 
     private void OpenFilmPanelPanelButtonClick(object sender, EventArgs e)
@@ -53,6 +147,7 @@ public partial class Form1 : Form
             control.Visible = false;
         }
         addFilmPanel.Visible = true;
+        UpdateSupplierComboBox();   
     }
     
     private void OpenCinemaPanelPanelButtonClick(object sender, EventArgs e)
@@ -70,7 +165,9 @@ public partial class Form1 : Form
         {
             control.Visible = false;
         }
-        addRentPanel.Visible = true;
+        addRentPanel.Visible = true;   
+        UpdateFilmComboBox();
+        UpdateCinemaComboBox();
     }
     
     private void backButton_Click(object sender, EventArgs e)
@@ -218,7 +315,7 @@ public partial class Form1 : Form
             return;
         }
 
-        Film film = new Film(name, category, scriptwriter, productiondirector, productionCompany, releaseYear, cost, selectedVendor);
+        Film film = new Film(name, category, scriptwriter, productiondirector, productionCompany, releaseYear, cost);
         
         _filmService.AddFilm(film);
         _vendorService.AddFilmToVendor(selectedVendor, film);
@@ -245,9 +342,7 @@ public partial class Form1 : Form
             string.IsNullOrWhiteSpace(cinemaOwnerTextBox.Text) ||
             string.IsNullOrWhiteSpace(cinemaBankNameTextBox.Text) ||
             string.IsNullOrWhiteSpace(cinemaBankAccountTextBox.Text) ||
-            string.IsNullOrWhiteSpace(cinemaInnTextBox.Text) ||
-            string.IsNullOrWhiteSpace(additionalTextBox.Text) ||
-            cinemaTypeComboBox.SelectedItem == null)
+            string.IsNullOrWhiteSpace(cinemaInnTextBox.Text) )
         {
             MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
@@ -262,8 +357,6 @@ public partial class Form1 : Form
         string bankName = cinemaBankNameTextBox.Text;
         string bankAccount = cinemaBankAccountTextBox.Text;
         string inn = cinemaInnTextBox.Text;
-        string cinemaType = cinemaTypeComboBox.SelectedItem?.ToString();
-        string additionalText= additionalTextBox.Text;
         
         if (!CinemaValidator.ValidateName(name))
         {
@@ -318,41 +411,7 @@ public partial class Form1 : Form
             MessageBox.Show("Некорректный ИНН. Он должен содержать 10 или 12 цифр.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
-        Cinema cinema = null;
-
-        switch (cinemaType)
-        {
-            case "Традиционный кинотеатр":
-                string screenType = additionalText;
-                if (!CinemaValidator.ValidateScreenType(screenType))
-                {
-                    MessageBox.Show("Некорректное название экрана. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                cinema = new TraditionalCinema(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, inn, cinemaType, screenType);
-                break;
-            case "Кинотеатр под открытым небом":
-                string parkingCapacityText = additionalText;
-                if (!int.TryParse(parkingCapacityText, out int parkingCapacity) || !CinemaValidator.ValidateParkingCapacity(parkingCapacity))
-                {
-                    MessageBox.Show("Некорректное количество мест. Оно должно быть не более 100.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                cinema = new OutdoorCinema(name, address, phone, seatCapacity,  director, owner, bankName, bankAccount, inn, cinemaType, parkingCapacity);
-                break;
-            case "4D кинотеатр":
-                string effect = additionalText;
-                if (!CinemaValidator.ValidateEffect(effect))
-                {
-                    MessageBox.Show("Некорректное название эффекта. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                cinema = new FourDCinema(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, inn, cinemaType, effect);
-                break;
-            default:
-                MessageBox.Show("Выберите тип кинотеатра.");
-                return;
-        }
+        Cinema cinema = new Cinema(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, inn);
         
         _cinemaService.AddCinema(cinema);
         MessageBox.Show("Кинотеатр успешно добавлен.");
@@ -367,8 +426,6 @@ public partial class Form1 : Form
         cinemaBankNameTextBox.Clear();
         cinemaBankAccountTextBox.Clear();
         cinemaInnTextBox.Clear();
-        additionalTextBox.Clear();
-        cinemaTypeComboBox.SelectedIndex = -1;
     }
     
     private void AddRentButtonClick (object sender, EventArgs e)
@@ -426,12 +483,7 @@ public partial class Form1 : Form
         ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
         showRentsForm.Show();
     }
-    private void Form1_Load(object sender, EventArgs e)
-    {
-        UpdateSupplierComboBox();
-        UpdateFilmComboBox();
-        UpdateCinemaComboBox();
-    }
+ 
     
     private void UpdateSupplierComboBox()
     {
@@ -464,25 +516,6 @@ public partial class Form1 : Form
         cinemaNameRentComboBox.DisplayMember = "Name";
     }
     
-    private void CinemaTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        additionalLabel.Text = string.Empty;
-        additionalTextBox.Clear();
-        
-        switch (cinemaTypeComboBox.SelectedItem?.ToString())
-        {
-            case "Традиционный кинотеатр":
-                additionalLabel.Text = "Тип экрана:";
-                break;
-            case "Кинотеатр под открытым небом":
-                additionalLabel.Text = "Количество парковочных мест:";
-                break;
-            case "4D кинотеатр":
-                additionalLabel.Text = "Сиденья с эффектами:";
-                break;
-        }
-        additionalLabel.Visible = true;
-        additionalTextBox.Visible = true;
-    }
+    
     
 }

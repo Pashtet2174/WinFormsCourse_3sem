@@ -1,7 +1,8 @@
+
+using System.Text.Json.Serialization;
 using WinFormsCourse_3sem;
 
-namespace Course_3sem;
-
+namespace WinFormsCourse_3sem;
 public class Film
 {
     private string _name;
@@ -11,7 +12,6 @@ public class Film
     private string _productionCompany;
     private int _releaseYear;
     private decimal _cost;
-    private Vendor _vendor;
 
     public string Name
     {
@@ -89,15 +89,10 @@ public class Film
             _cost = value;
         }
     }
-
-    public Vendor Vendor
-    {
-        get { return _vendor; }
-        set => _vendor = value ?? throw new ArgumentNullException("Поставщик не может быть null.");
-    }
-
+    
+    
     public Film(string name, string category, string scriptwriter, string productionDirector, string productionCompany,
-        int releaseYear, decimal cost, Vendor vendor)
+        int releaseYear, decimal cost)
     {
         Name = name;
         Category = category;
@@ -106,6 +101,5 @@ public class Film
         ProductionCompany = productionCompany;
         ReleaseYear = releaseYear;
         Cost = cost;
-        Vendor = vendor;
     }
 }

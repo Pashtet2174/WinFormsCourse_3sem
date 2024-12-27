@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "H9MlbiGpcVs=",
+  "dgSpecHash": "jyMVDOy60mI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Павел\\RiderProjects\\WinFormsCourse_3sem\\WinFormsCourse_3sem\\WinFormsCourse_3sem.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Павел\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -9,7 +9,7 @@ public class Rent
     private DateTime _startDate;
     private DateTime _endDate;
     private decimal _rentalPrice;
-    
+
     public Cinema Cinema
     {
         get { return _cinema; }
@@ -44,11 +44,11 @@ public class Rent
             _rentalPrice = value;
         }
     }
-    
+
     public Rent(Cinema cinema, Film film, DateTime startDate, DateTime endDate, decimal rentalPrice)
     {
-        Cinema = cinema;
-        Film = film;
+        Cinema = cinema ?? throw new ArgumentNullException(nameof(cinema), "Кинотеатр не может быть null.");
+        Film = film ?? throw new ArgumentNullException(nameof(film), "Фильм не может быть null.");
         StartDate = startDate;
         EndDate = endDate;
         RentalPrice = rentalPrice;

@@ -534,10 +534,7 @@ partial class Form1
     private System.Windows.Forms.Label cinemaBankNameLabel;
     private System.Windows.Forms.Label cinemaBankAccountLabel;
     private System.Windows.Forms.Label cinemaInnLabel;
-    private System.Windows.Forms.ComboBox cinemaTypeComboBox;
-    private System.Windows.Forms.Label additionalLabel;
-    private System.Windows.Forms.TextBox additionalTextBox;
-    private System.Windows.Forms.Label cinemaTypeLabel;
+    
         
 
     private void InitializeAddCinemaPanel()
@@ -563,19 +560,12 @@ partial class Form1
         cinemaInnTextBox = new TextBox();
         back3Button = new System.Windows.Forms.Button();
         addCinemaButton = new System.Windows.Forms.Button();
-        cinemaTypeLabel = new Label();
-        cinemaTypeComboBox = new ComboBox();
-        additionalLabel = new Label();
-        additionalTextBox = new TextBox();
+        
         
         SuspendLayout();
         // 
         // addCinemaPanel
         // 
-        addCinemaPanel.Controls.Add(cinemaTypeLabel);
-        addCinemaPanel.Controls.Add(cinemaTypeComboBox);
-        addCinemaPanel.Controls.Add(additionalLabel); 
-        addCinemaPanel.Controls.Add(additionalTextBox); 
         addCinemaPanel.Controls.Add(cinemaNameLabel);
         addCinemaPanel.Controls.Add(cinemaNameTextBox);
         addCinemaPanel.Controls.Add(cinemaAddressLabel);
@@ -745,35 +735,7 @@ partial class Form1
         cinemaInnTextBox.Name = "cinemaInnTextBox";
         cinemaInnTextBox.Size = new System.Drawing.Size(300, 27);
         cinemaInnTextBox.TabIndex = 17;
-        //
-        // cinemaTypeLabel
-        //
-        cinemaTypeLabel.Location = new System.Drawing.Point(20, 560);
-        cinemaTypeLabel.Name = "cinemaTypeLabel";
-        cinemaTypeLabel.Text = "Тип кинотеатра";
-        cinemaTypeLabel.Size = new System.Drawing.Size(300, 27);
-        cinemaTypeLabel.TabIndex = 18;
-        //
-        // cinemaTypeComboBox
-        //
-        cinemaTypeComboBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
-        cinemaTypeComboBox.Location = new System.Drawing.Point(20, 590);
-        cinemaTypeComboBox.Size = new System.Drawing.Size(300, 27);
-        cinemaTypeComboBox.TabIndex = 19;
-        cinemaTypeComboBox.Items.Add("Традиционный кинотеатр");
-        cinemaTypeComboBox.Items.Add("Кинотеатр под открытым небом");
-        cinemaTypeComboBox.Items.Add("4D кинотеатр");
-        cinemaTypeComboBox.SelectedIndexChanged += CinemaTypeComboBox_SelectedIndexChanged;
-        //
-        // additionalLabel
-        //
-        additionalLabel.Location = new System.Drawing.Point(20, 620);
-        additionalLabel.Size = new System.Drawing.Size(300, 27);
-        //
-        // additionalTextBox
-        //
-        additionalTextBox.Location = new System.Drawing.Point(20, 650);
-        additionalTextBox.Size = new System.Drawing.Size(300, 27);
+        
         //
         // back3Button
         //
