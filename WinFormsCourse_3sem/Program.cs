@@ -15,6 +15,11 @@ namespace WinFormsCourse_3sem;
             IFilmService filmService = new FilmService();
             IVendorService vendorService = new VendorService();
             IRentService rentService = new RentService();
+            if (!File.Exists("DataContainer.json"))
+            {
+                var dataContainer = new DataContainer();
+                FileManagement.SaveToFileAsync(dataContainer).Wait();
+            }
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

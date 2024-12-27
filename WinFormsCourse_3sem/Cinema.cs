@@ -3,11 +3,10 @@ using WinFormsCourse_3sem;
 
 namespace WinFormsCourse_3sem;
 
-public  class Cinema
+public class Cinema
 {
     
     private string _name;
-    private string _cinemaType;
     private string _address;
     private string _phone;
     private int _seatCapacity;
@@ -115,15 +114,15 @@ public  class Cinema
 
     public Cinema(string name, string address, string phone, int seatCapacity, string director, string owner, string bankName, string bankAccountNumber, string inn)
     {
-        Name = name ?? throw new ArgumentNullException(nameof(name), "Название не может быть null.");
-        Address = address ?? throw new ArgumentNullException(nameof(address), "Адрес не может быть null.");
-        Phone = phone ?? throw new ArgumentNullException(nameof(phone), "Телефон не может быть null.");
+        Name = name;
+        Address = address;
+        Phone = phone;
         SeatCapacity = seatCapacity;
-        Director = director ?? throw new ArgumentNullException(nameof(director), "Имя директора не может быть null.");
-        Owner = owner ?? throw new ArgumentNullException(nameof(owner), "Имя владельца не может быть null.");
-        BankName = bankName ?? throw new ArgumentNullException(nameof(bankName), "Название банка не может быть null.");
-        BankAccountNumber = bankAccountNumber ?? throw new ArgumentNullException(nameof(bankAccountNumber), "Номер банковского счёта не может быть null.");
-        Inn = inn ?? throw new ArgumentNullException(nameof(inn), "ИНН не может быть null.");
+        Director = director;
+        Owner = owner;
+        BankName = bankName;
+        BankAccountNumber = bankAccountNumber;
+        Inn = inn;
     }
     
 }

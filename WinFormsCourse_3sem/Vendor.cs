@@ -81,11 +81,11 @@ namespace WinFormsCourse_3sem
         
         public Vendor(string name, string legalAddress, string bankName, string bankAccountNumber, string inn)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name), "Название не может быть null.");
-            LegalAddress = legalAddress ?? throw new ArgumentNullException(nameof(legalAddress), "Юридический адрес не может быть null.");
-            BankName = bankName ?? throw new ArgumentNullException(nameof(bankName), "Название банка не может быть null.");
-            BankAccountNumber = bankAccountNumber ?? throw new ArgumentNullException(nameof(bankAccountNumber), "Номер банковского счёта не может быть null.");
-            Inn = inn ?? throw new ArgumentNullException(nameof(inn), "ИНН не может быть null.");
+            Name = name;
+            LegalAddress = legalAddress;
+            BankName = bankName ;
+            BankAccountNumber = bankAccountNumber ;
+            Inn = inn ;
             Films = new List<Film>();
         }
 

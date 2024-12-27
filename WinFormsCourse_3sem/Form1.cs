@@ -467,24 +467,6 @@ public partial class Form1 : Form
         endDateRentPicker.Value = DateTime.Now;
         rentalPriceRentTextBox.Clear();
     }
-
-    private void saveAndBackButton_Click (object sender, EventArgs e)
-    {
-        
-    }
-    
-    
-    
-    
-    
-    private void ShowRentFormButton_Click(object sender, EventArgs e)
-    {
-        // Создание и отображение формы AddVendorForm с передачей сервисов
-        ShowRentsForm showRentsForm = new ShowRentsForm(_cinemaService, _filmService, _vendorService, _rentService);
-        showRentsForm.Show();
-    }
- 
-    
     private void UpdateSupplierComboBox()
     {
         vendorComboBox.Items.Clear(); 
@@ -516,6 +498,12 @@ public partial class Form1 : Form
         cinemaNameRentComboBox.DisplayMember = "Name";
     }
     
+    private void ShowRentFormButton_Click(object sender, EventArgs e)
+    {
+        // Создание и отображение формы AddVendorForm с передачей сервисов
+        ShowRentsForm showRentsForm = new ShowRentsForm(_rentService);
+        showRentsForm.Show();
+    }
     
     
 }

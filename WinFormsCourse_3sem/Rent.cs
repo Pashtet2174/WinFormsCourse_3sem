@@ -47,8 +47,8 @@ public class Rent
 
     public Rent(Cinema cinema, Film film, DateTime startDate, DateTime endDate, decimal rentalPrice)
     {
-        Cinema = cinema ?? throw new ArgumentNullException(nameof(cinema), "Кинотеатр не может быть null.");
-        Film = film ?? throw new ArgumentNullException(nameof(film), "Фильм не может быть null.");
+        Cinema = cinema ;
+        Film = film;
         StartDate = startDate;
         EndDate = endDate;
         RentalPrice = rentalPrice;

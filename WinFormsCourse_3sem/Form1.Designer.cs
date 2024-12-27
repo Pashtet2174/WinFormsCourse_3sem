@@ -127,7 +127,6 @@ partial class Form1
     private System.Windows.Forms.TextBox vendorBankAccountTextBox;
     private System.Windows.Forms.Label vendorINNLabel;
     private System.Windows.Forms.TextBox vendorINNTextBox;
-    private System.Windows.Forms.Button saveAndBackButton;
     private void InitializeAddVendorPanel()
     {
         addVendorPanel = new System.Windows.Forms.Panel();
@@ -143,7 +142,6 @@ partial class Form1
         vendorINNTextBox = new TextBox();
         backButton = new System.Windows.Forms.Button();
         addVendorButton = new System.Windows.Forms.Button();
-        saveAndBackButton = new System.Windows.Forms.Button();
         
         SuspendLayout();
         //
@@ -161,7 +159,6 @@ partial class Form1
         addVendorPanel.Controls.Add(vendorINNTextBox);
         addVendorPanel.Controls.Add(backButton);
         addVendorPanel.Controls.Add(addVendorButton); 
-        addVendorPanel.Controls.Add(saveAndBackButton); 
         addVendorPanel.Name = "addVendorPanel";
         addVendorPanel.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
         addVendorPanel.Dock = DockStyle.Fill;
@@ -261,25 +258,14 @@ partial class Form1
         //
         // addVendorButton
         //
-        addVendorButton.Anchor = (AnchorStyles.Bottom);
-        addVendorButton.Location = new System.Drawing.Point(50, 350); 
+        addVendorButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+        addVendorButton.Location = new System.Drawing.Point(500, 350); 
         addVendorButton.Name = "addVendorButton"; 
         addVendorButton.Size = new System.Drawing.Size(120, 70);
         addVendorButton.TabIndex = 3; 
         addVendorButton.Text = "Добавить"; 
         addVendorButton.UseVisualStyleBackColor = true; 
         addVendorButton.Click += AddVendorButtonClick;
-        //
-        //saveAndBackButton
-        //
-        saveAndBackButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
-        saveAndBackButton.Location = new System.Drawing.Point(90, 350); 
-        saveAndBackButton.Name = "saveVendorButton"; 
-        saveAndBackButton.Size = new System.Drawing.Size(120, 70);
-        saveAndBackButton.TabIndex = 4; 
-        saveAndBackButton.Text = "Сохранить данные и выйти"; 
-        saveAndBackButton.UseVisualStyleBackColor = true; 
-        saveAndBackButton.Click += saveAndBackButton_Click;
         
         Controls.Add(addVendorPanel);
         ResumeLayout(false);
@@ -305,7 +291,6 @@ partial class Form1
     private System.Windows.Forms.Label vendorLabel;
     private System.Windows.Forms.Button addFilmButton;
     private System.Windows.Forms.Button back2Button;
-    //private System.Windows.Forms.Button saveAndBackButton;
 
     private void InitializeAddFilmPanel()
     {
@@ -328,7 +313,6 @@ partial class Form1
         vendorComboBox = new ComboBox();
         back2Button = new System.Windows.Forms.Button();
         addFilmButton = new System.Windows.Forms.Button();
-        //saveAndBackButton = new System.Windows.Forms.Button();
 
         SuspendLayout();
         //
@@ -352,7 +336,6 @@ partial class Form1
         addFilmPanel.Controls.Add(vendorComboBox);
         addFilmPanel.Controls.Add(back2Button);
         addFilmPanel.Controls.Add(addFilmButton);
-        //addFilmPanel.Controls.Add(saveAndBackButton);
         addFilmPanel.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
         addFilmPanel.Name = "addFilmPanel";
         addFilmPanel.Dock = DockStyle.Fill;
@@ -500,7 +483,7 @@ partial class Form1
         //
         // addFilmButton
         //
-        addFilmButton.Anchor = (AnchorStyles.Bottom);
+        addFilmButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
         addFilmButton.Location = new System.Drawing.Point(50, 510);
         addFilmButton.Name = "addFilmButton";
         addFilmButton.Size = new System.Drawing.Size(120, 70);
@@ -534,7 +517,6 @@ partial class Form1
     private System.Windows.Forms.Label cinemaBankNameLabel;
     private System.Windows.Forms.Label cinemaBankAccountLabel;
     private System.Windows.Forms.Label cinemaInnLabel;
-    
         
 
     private void InitializeAddCinemaPanel()
@@ -560,7 +542,6 @@ partial class Form1
         cinemaInnTextBox = new TextBox();
         back3Button = new System.Windows.Forms.Button();
         addCinemaButton = new System.Windows.Forms.Button();
-        
         
         SuspendLayout();
         // 
@@ -735,24 +716,23 @@ partial class Form1
         cinemaInnTextBox.Name = "cinemaInnTextBox";
         cinemaInnTextBox.Size = new System.Drawing.Size(300, 27);
         cinemaInnTextBox.TabIndex = 17;
-        
         //
         // back3Button
         //
         back3Button.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-        back3Button.Location = new System.Drawing.Point(20, 680);
+        back3Button.Location = new System.Drawing.Point(20, 650);
         back3Button.Name = "back3Button";
-        back3Button.Size = new System.Drawing.Size(100, 30);
+        back3Button.Size = new System.Drawing.Size(120, 70);
         back3Button.Text = "Назад";
         back3Button.UseVisualStyleBackColor = true;
         back3Button.Click += backButton_Click;
         //
         // addCinemaButton
         //
-        addCinemaButton.Anchor = (AnchorStyles.Bottom );
-        addCinemaButton.Location = new System.Drawing.Point(500, 680);
+        addCinemaButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+        addCinemaButton.Location = new System.Drawing.Point(500, 650);
         addCinemaButton.Name = "addCinemaButton";
-        addCinemaButton.Size = new System.Drawing.Size(100, 30);
+        addCinemaButton.Size = new System.Drawing.Size(120, 70);
         addCinemaButton.Text = "Сохранить";
         addCinemaButton.UseVisualStyleBackColor = true;
         addCinemaButton.Click += AddCinemaButtonClick;
@@ -906,7 +886,7 @@ partial class Form1
         //
         // addCinemaButton
         //
-        addRentButton.Anchor = (AnchorStyles.Bottom);
+        addRentButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
         addRentButton.Location = new System.Drawing.Point(220, 3700);
         addRentButton.Name = "addRentButton";
         addRentButton.Size = new System.Drawing.Size(120, 70);
