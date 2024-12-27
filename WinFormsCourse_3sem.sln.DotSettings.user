@@ -5,5 +5,5 @@
   &lt;Assembly Path="C:\Users\Павел\RiderProjects\WinFormsCourse_3sem\WinFormsCourse_3sem\bin\Debug\net9.0-windows\Newtonsoft.Json.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WinFormsCourse_005F3sem_002FForm1/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WinFormsCourse_005F3sem_002FShowRentsForm/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=WinFormsCourse_005F3sem_002FShowRentsForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>

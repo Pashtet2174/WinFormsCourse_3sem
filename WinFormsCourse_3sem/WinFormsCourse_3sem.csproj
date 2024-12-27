@@ -48,6 +48,9 @@
       <Compile Update="RentValidator.cs">
         <DependentUpon>Rent.cs</DependentUpon>
       </Compile>
+      <Compile Update="ShowVendorsForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

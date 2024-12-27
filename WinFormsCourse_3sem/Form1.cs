@@ -12,10 +12,10 @@ public partial class Form1 : Form
     public Form1(ICinemaService cinemaService, IFilmService filmService, IVendorService vendorService,IRentService rentService)
     {
         
-        _cinemaService = cinemaService ?? throw new ArgumentNullException(nameof(cinemaService));
-        _filmService = filmService ?? throw new ArgumentNullException(nameof(filmService));
-        _vendorService = vendorService ?? throw new ArgumentNullException(nameof(vendorService));
-        _rentService = rentService ?? throw new ArgumentNullException(nameof(rentService));
+        _cinemaService = cinemaService;
+        _filmService = filmService;
+        _vendorService = vendorService;
+        _rentService = rentService;
         InitializeComponent();
         InitializeAddVendorPanel();
         InitializeAddFilmPanel();
@@ -500,10 +500,14 @@ public partial class Form1 : Form
     
     private void ShowRentFormButton_Click(object sender, EventArgs e)
     {
-        // Создание и отображение формы AddVendorForm с передачей сервисов
         ShowRentsForm showRentsForm = new ShowRentsForm(_rentService);
         showRentsForm.Show();
     }
-    
-    
+
+
+    private void ShowVendorFormButton_Click(object sender, EventArgs e)
+    {
+        ShowVendorsForm showVendorsForm = new ShowVendorsForm(_vendorService);
+        showVendorsForm.Show();
+    }
 }

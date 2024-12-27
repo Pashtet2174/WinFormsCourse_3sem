@@ -35,6 +35,7 @@ partial class Form1
         openCinemaPanelButton = new System.Windows.Forms.Button();
         openRentPanelButton = new System.Windows.Forms.Button();
         ShowRentsButton = new System.Windows.Forms.Button();
+        ShowVendorFormButton = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // openVendorPanelButton
@@ -89,12 +90,23 @@ partial class Form1
         ShowRentsButton.UseVisualStyleBackColor = true;
         ShowRentsButton.Click += ShowRentFormButton_Click;
         // 
+        // ShowVendorFormButton
+        // 
+        ShowVendorFormButton.Location = new System.Drawing.Point(305, 540);
+        ShowVendorFormButton.Name = "ShowVendorFormButton";
+        ShowVendorFormButton.Size = new System.Drawing.Size(150, 101);
+        ShowVendorFormButton.TabIndex = 5;
+        ShowVendorFormButton.Text = "Показать список поставщиков";
+        ShowVendorFormButton.UseVisualStyleBackColor = true;
+        ShowVendorFormButton.Click += ShowVendorFormButton_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.SystemColors.ControlLight;
         ClientSize = new System.Drawing.Size(823, 753);
+        Controls.Add(ShowVendorFormButton);
         Controls.Add(ShowRentsButton);
         Controls.Add(openRentPanelButton);
         Controls.Add(openCinemaPanelButton);
@@ -106,7 +118,9 @@ partial class Form1
         Text = "Система учёта аренды кинофильмов";
         ResumeLayout(false);
     }
-    
+
+    private System.Windows.Forms.Button ShowVendorFormButton;
+
 
     private System.Windows.Forms.Button ShowRentsButton;
     private System.Windows.Forms.Button openRentPanelButton;

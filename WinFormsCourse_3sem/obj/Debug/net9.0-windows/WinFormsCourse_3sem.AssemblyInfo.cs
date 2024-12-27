@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WinFormsCourse_3sem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7731847cd8d0ad422c617370b4e7e5877c600a54")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea6806e66100e24ce6eda9caf4c8f9709e15bd3")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinFormsCourse_3sem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinFormsCourse_3sem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
