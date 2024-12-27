@@ -510,4 +510,17 @@ public partial class Form1 : Form
         ShowVendorsForm showVendorsForm = new ShowVendorsForm(_vendorService);
         showVendorsForm.Show();
     }
+    
+    private void ShowCinemaFormButton_Click(object sender, EventArgs e)
+    {
+        ShowCinemasForm showCinemasForm = new ShowCinemasForm(_cinemaService);
+        showCinemasForm.Show();
+    }
+    
+    //private void ShowFilmFormButton_Click(object sender, EventArgs e)
+    //{
+    //    ShowFilmsForm showFilmsForm = new ShowFilmsForm(_filmService);
+    //    showFilmsForm.Show();
+   // }
+    
 }

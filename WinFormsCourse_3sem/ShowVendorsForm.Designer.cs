@@ -31,11 +31,39 @@ partial class ShowVendorsForm
     /// </summary>
     private void InitializeComponent()
     {
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "ShowVendorsForm";
+        vensorsGridView = new System.Windows.Forms.DataGridView();
+        ((System.ComponentModel.ISupportInitialize)vensorsGridView).BeginInit();
+        SuspendLayout();
+        // 
+        // vensorsGridView
+        // 
+        vensorsGridView.Name = "vensorsGridView";
+        vensorsGridView.Text = "vensorsGridView";
+        vensorsGridView.Dock = DockStyle.Fill;
+        vensorsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        vensorsGridView.AllowUserToAddRows = false;
+        vensorsGridView.ReadOnly = true;
+        vensorsGridView.DefaultCellStyle.SelectionBackColor = vensorsGridView.DefaultCellStyle.BackColor;
+        vensorsGridView.DefaultCellStyle.SelectionForeColor = vensorsGridView.DefaultCellStyle.ForeColor;
+        vensorsGridView.Columns.Add("Name", "Название");
+        vensorsGridView.Columns.Add("LegalAddress", "Юридический адрес");
+        vensorsGridView.Columns.Add("BankName", "Название банка");
+        vensorsGridView.Columns.Add("BankAccountNumber", "Номер банковского счёта");
+        vensorsGridView.Columns.Add("Inn", "ИНН");
+        // 
+        // ShowVendorsForm
+        // 
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        ClientSize = new System.Drawing.Size(800, 450);
+        Controls.Add(vensorsGridView);
+        Text = "Список поставщиков";
+        MinimumSize = new System.Drawing.Size(1000, 1000);
+        ((System.ComponentModel.ISupportInitialize)vensorsGridView).EndInit();
+        ResumeLayout(false);
     }
+
+    private System.Windows.Forms.DataGridView vensorsGridView;
 
     #endregion
 }
