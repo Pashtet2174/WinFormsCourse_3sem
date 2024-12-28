@@ -6,10 +6,8 @@ public partial class Form1 : Form
     private readonly IFilmService _filmService;
     private readonly IVendorService _vendorService;
     private readonly IRentService _rentService;
-    
     public Form1(ICinemaService cinemaService, IFilmService filmService, IVendorService vendorService,IRentService rentService)
     {
-        
         _cinemaService = cinemaService;
         _filmService = filmService;
         _vendorService = vendorService;
@@ -139,45 +137,21 @@ public partial class Form1 : Form
             MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
+        
         string name = vendorNameTextBox.Text;
         string legalAddress = vendorLegalAddressTextBox.Text;
         string bank = vendorBankTextBox.Text;
         string bankAccountNumber = vendorBankAccountTextBox.Text;
         string inn = vendorINNTextBox.Text;
-
-        if (!VendorValidator.ValidateName(name))
+        
+        string errorMessage = _vendorService.ValidateVendor(name, legalAddress, bank, bankAccountNumber, inn);
+        if (!string.IsNullOrEmpty(errorMessage))
         {
-            MessageBox.Show("Некорректное название поставщика киноленты. Оно не должно быть пустым и должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(errorMessage, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
-
-        if (!VendorValidator.ValidateLegalAddress(legalAddress))
-        {
-            MessageBox.Show("Некорректный юридический адрес. Он не должен быть пустым и должен содержать до 200 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!VendorValidator.ValidateBankName(bank))
-        {
-            MessageBox.Show("Некорректное название банка. Оно не должно быть пустым и должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!VendorValidator.ValidateBankAccountNumber(bankAccountNumber))
-        {
-            MessageBox.Show("Некорректный номер банковского счёта. Он должен содержать 20 цифр.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!VendorValidator.ValidateInn(inn))
-        {
-            MessageBox.Show("Некорректный ИНН. Он должен содержать 10 или 12 цифр.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        Vendor vendor = new Vendor(name, legalAddress, bank, bankAccountNumber, inn);
-        _vendorService.AddVendor(vendor);
-
+        
+        _vendorService.CreateVendor(name, legalAddress, bank, bankAccountNumber, inn);
         MessageBox.Show("Поставщик киноленты успешно добавлен.");
 
         UpdateSupplierComboBox();
