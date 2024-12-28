@@ -11,30 +11,15 @@ public class Rent
     public Cinema Cinema
     {
         get { return _cinema; }
-        set
-        {
-            if (_cinema == null)
-            {
-                throw new ArgumentNullException("Кинотеатр не может быть null.");
-            }
-
-            _cinema = value;
-        }
+        set => _cinema = value ?? throw new ArgumentNullException("Кинотеатр не может быть null.");
     }
 
     public Film Film
     {
         get { return _film; }
-        set
-        {
-            if (_film == null)
-            {
-                throw new ArgumentNullException("Фильм не может быть null.");
-            }
-
-            _film = value;
+        set => _film = value ??throw new ArgumentNullException("Фильм не может быть null.");
+           
         }
-    }
 
     public DateTime StartDate
     {
