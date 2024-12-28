@@ -1,5 +1,5 @@
 using Newtonsoft.Json; 
-using JsonException = System.Text.Json.JsonException;
+using JsonException = Newtonsoft.Json.JsonException;
 
 namespace WinFormsCourse_3sem
 {
@@ -29,7 +29,7 @@ namespace WinFormsCourse_3sem
         {
             try
             {
-                string json = JsonConvert.SerializeObject(data, settings);
+                string json = SerializeDataContainer(data);
                 await File.WriteAllTextAsync(fileName, json);
                 Console.WriteLine("Data successfully saved to file.");
             }
@@ -53,6 +53,7 @@ namespace WinFormsCourse_3sem
                 }
                 string json = await File.ReadAllTextAsync(fileName);
                 return DeserializeDataContainer(json);
+                
             }
             catch (FileNotFoundException ex)
             {

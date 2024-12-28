@@ -48,9 +48,9 @@ partial class ShowRentsForm
         rentsGridView1.DefaultCellStyle.SelectionForeColor = rentsGridView1.DefaultCellStyle.ForeColor;
         rentsGridView1.Columns.Add("Cinema", "Кинотеатр");
         rentsGridView1.Columns.Add("Film", "Фильм");
-        rentsGridView1.Columns.Add("StartDate", "Дата начала");
-        rentsGridView1.Columns.Add("EndDate", "Дата окончания");
-        rentsGridView1.Columns.Add("RentalPrice", "Стоимость аренды");
+        rentsGridView1.Columns.Add("StartDate", "Дата начала демонстрации");
+        rentsGridView1.Columns.Add("EndDate", "Дата окончания демонстрации");
+        rentsGridView1.Columns.Add("RentalPrice", "Цена аренды");
         // 
         // ShowRentsForm
         // 

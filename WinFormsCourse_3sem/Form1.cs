@@ -1,5 +1,3 @@
-using Course_3sem;
-
 namespace WinFormsCourse_3sem;
 
 public partial class Form1 : Form
@@ -42,80 +40,27 @@ public partial class Form1 : Form
     private async void LoadData()
     {
         var data = await FileManagement.GetFromFileAsync();
-
-        if (data == null)
+        
+        foreach (var vendor in data.Vendors)
         {
-            Console.WriteLine("Data loaded from file is null.");
-            return;
+            
+            _vendorService.AddVendor(vendor);
         }
-
-        if (data.Vendors != null)
+        
+        foreach (var film in data.Films)
         {
-            foreach (var vendor in data.Vendors)
-            {
-                if (vendor == null)
-                {
-                    Console.WriteLine("A vendor in the data is null.");
-                    continue;
-                }
-                _vendorService.AddVendor(vendor);
-            }
+            _filmService.AddFilm(film);
         }
-        else
+        foreach (var cinema in data.Cinemas)
         {
-            Console.WriteLine("Vendors list is null.");
+            _cinemaService.AddCinema(cinema);
         }
-
-        if (data.Films != null)
+        foreach (var rent in data.Rents)
         {
-            foreach (var film in data.Films)
-            {
-                if (film == null)
-                {
-                    Console.WriteLine("A film in the data is null.");
-                    continue;
-                }
-                _filmService.AddFilm(film);
-            }
+            _rentService.AddRent(rent);
         }
-        else
-        {
-            Console.WriteLine("Films list is null.");
-        }
-
-        if (data.Cinemas != null)
-        {
-            foreach (var cinema in data.Cinemas)
-            {
-                if (cinema == null)
-                {
-                    Console.WriteLine("A cinema in the data is null.");
-                    continue;
-                }
-                _cinemaService.AddCinema(cinema);
-            }
-        }
-        else
-        {
-            Console.WriteLine("Cinemas list is null.");
-        }
-
-        if (data.Rents != null)
-        {
-            foreach (var rent in data.Rents)
-            {
-                if (rent == null)
-                {
-                    Console.WriteLine("A rent in the data is null.");
-                    continue;
-                }
-                _rentService.AddRent(rent);
-            }
-        }
-        else
-        {
-            Console.WriteLine("Rents list is null.");
-        }
+        Console.WriteLine("Data loaded");
+        
     }
 
     private async void SaveData()
@@ -516,11 +461,10 @@ public partial class Form1 : Form
         ShowCinemasForm showCinemasForm = new ShowCinemasForm(_cinemaService);
         showCinemasForm.Show();
     }
-    
-    //private void ShowFilmFormButton_Click(object sender, EventArgs e)
-    //{
-    //    ShowFilmsForm showFilmsForm = new ShowFilmsForm(_filmService);
-    //    showFilmsForm.Show();
-   // }
+    private void ShowFilmFormButton_Click(object sender, EventArgs e)
+    {
+        ShowFilmsForm showFilmsForm = new ShowFilmsForm(_filmService);
+        showFilmsForm.Show();
+    }
     
 }

@@ -54,6 +54,9 @@
       <Compile Update="ShowCinemasForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="ShowFilmsForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

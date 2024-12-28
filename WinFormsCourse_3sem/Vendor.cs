@@ -1,7 +1,3 @@
-
-
-using System.Text.Json.Serialization;
-
 namespace WinFormsCourse_3sem
 {
     public class Vendor
@@ -19,7 +15,7 @@ namespace WinFormsCourse_3sem
             set
             {
                 if (!VendorValidator.ValidateName(value))
-                    throw new ArgumentException("Некорректное название. Оно не должно быть пустым и должно содержать до 100 символов.");
+                    throw new ArgumentException("Некорректное Фио. Оно не должно быть пустым и должно содержать до 100 символов.");
                 _name = value;
             }
         }
@@ -52,7 +48,7 @@ namespace WinFormsCourse_3sem
             set
             {
                 if (!VendorValidator.ValidateBankAccountNumber(value))
-                    throw new ArgumentException("Некорректный номер банковского счёта. Он должен содержать 20 цифр.");
+                    throw new ArgumentException("Некорректный номер счёта. Он должен содержать 20 цифр.");
                 _bankAccountNumber = value;
             }
         }

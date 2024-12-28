@@ -37,86 +37,110 @@ partial class Form1
         ShowRentsButton = new System.Windows.Forms.Button();
         ShowVendorFormButton = new System.Windows.Forms.Button();
         ShowCinemaFormButton = new System.Windows.Forms.Button();
+        ShowFilmFormButton = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // openVendorPanelButton
         // 
-        openVendorPanelButton.Location = new System.Drawing.Point(50, 77);
+        openVendorPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        openVendorPanelButton.BackColor = System.Drawing.Color.MistyRose;
+        openVendorPanelButton.Location = new System.Drawing.Point(49, 40);
         openVendorPanelButton.Name = "openVendorPanelButton";
-        openVendorPanelButton.Size = new System.Drawing.Size(150, 101);
+        openVendorPanelButton.Size = new System.Drawing.Size(360, 101);
         openVendorPanelButton.TabIndex = 0;
         openVendorPanelButton.Text = "Добавить поставщика";
-        openVendorPanelButton.UseVisualStyleBackColor = true;
+        openVendorPanelButton.UseVisualStyleBackColor = false;
         openVendorPanelButton.Click += OpenVendorPanelPanelButtonClick;
         // 
         // openFilmPanelButton
         // 
-        openFilmPanelButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-        openFilmPanelButton.Location = new System.Drawing.Point(305, 77);
+        openFilmPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        openFilmPanelButton.BackColor = System.Drawing.Color.MistyRose;
+        openFilmPanelButton.Location = new System.Drawing.Point(49, 218);
         openFilmPanelButton.Name = "openFilmPanelButton";
-        openFilmPanelButton.Size = new System.Drawing.Size(150, 101);
+        openFilmPanelButton.Size = new System.Drawing.Size(360, 101);
         openFilmPanelButton.TabIndex = 1;
         openFilmPanelButton.Text = "Добавить фильм";
-        openFilmPanelButton.UseVisualStyleBackColor = true;
+        openFilmPanelButton.UseVisualStyleBackColor = false;
         openFilmPanelButton.Click += OpenFilmPanelPanelButtonClick;
         // 
         // openCinemaPanelButton
         // 
-        openCinemaPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-        openCinemaPanelButton.Location = new System.Drawing.Point(557, 77);
+        openCinemaPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        openCinemaPanelButton.BackColor = System.Drawing.Color.MistyRose;
+        openCinemaPanelButton.Location = new System.Drawing.Point(49, 413);
         openCinemaPanelButton.Name = "openCinemaPanelButton";
-        openCinemaPanelButton.Size = new System.Drawing.Size(150, 101);
+        openCinemaPanelButton.Size = new System.Drawing.Size(360, 101);
         openCinemaPanelButton.TabIndex = 2;
         openCinemaPanelButton.Text = "Добавить кинотеатр";
-        openCinemaPanelButton.UseVisualStyleBackColor = true;
+        openCinemaPanelButton.UseVisualStyleBackColor = false;
         openCinemaPanelButton.Click += OpenCinemaPanelPanelButtonClick;
         // 
         // openRentPanelButton
         // 
-        openRentPanelButton.Location = new System.Drawing.Point(50, 540);
+        openRentPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
+        openRentPanelButton.BackColor = System.Drawing.Color.MistyRose;
+        openRentPanelButton.Location = new System.Drawing.Point(49, 610);
         openRentPanelButton.Name = "openRentPanelButton";
-        openRentPanelButton.Size = new System.Drawing.Size(150, 101);
+        openRentPanelButton.Size = new System.Drawing.Size(360, 101);
         openRentPanelButton.TabIndex = 3;
-        openRentPanelButton.Text = "Добавить аренду";
-        openRentPanelButton.UseVisualStyleBackColor = true;
+        openRentPanelButton.Text = "Создать аренду";
+        openRentPanelButton.UseVisualStyleBackColor = false;
         openRentPanelButton.Click += OpenRentPanelPanelButtonClick;
         // 
         // ShowRentsButton
         // 
-        ShowRentsButton.Location = new System.Drawing.Point(557, 540);
+        ShowRentsButton.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
+        ShowRentsButton.BackColor = System.Drawing.Color.PaleGreen;
+        ShowRentsButton.Location = new System.Drawing.Point(569, 610);
         ShowRentsButton.Name = "ShowRentsButton";
         ShowRentsButton.Size = new System.Drawing.Size(150, 101);
-        ShowRentsButton.TabIndex = 4;
+        ShowRentsButton.TabIndex = 0;
         ShowRentsButton.Text = "Показать список аренды";
-        ShowRentsButton.UseVisualStyleBackColor = true;
+        ShowRentsButton.UseVisualStyleBackColor = false;
         ShowRentsButton.Click += ShowRentFormButton_Click;
         // 
         // ShowVendorFormButton
         // 
-        ShowVendorFormButton.Location = new System.Drawing.Point(305, 540);
+        ShowVendorFormButton.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
+        ShowVendorFormButton.BackColor = System.Drawing.Color.PaleGreen;
+        ShowVendorFormButton.Location = new System.Drawing.Point(569, 40);
         ShowVendorFormButton.Name = "ShowVendorFormButton";
         ShowVendorFormButton.Size = new System.Drawing.Size(150, 101);
-        ShowVendorFormButton.TabIndex = 5;
+        ShowVendorFormButton.TabIndex = 1;
         ShowVendorFormButton.Text = "Показать список поставщиков";
-        ShowVendorFormButton.UseVisualStyleBackColor = true;
+        ShowVendorFormButton.UseVisualStyleBackColor = false;
         ShowVendorFormButton.Click += ShowVendorFormButton_Click;
         // 
         // ShowCinemaFormButton
         // 
-        ShowCinemaFormButton.Location = new System.Drawing.Point(88, 299);
+        ShowCinemaFormButton.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
+        ShowCinemaFormButton.BackColor = System.Drawing.Color.PaleGreen;
+        ShowCinemaFormButton.Location = new System.Drawing.Point(569, 413);
         ShowCinemaFormButton.Name = "ShowCinemaFormButton";
-        ShowCinemaFormButton.Size = new System.Drawing.Size(141, 125);
-        ShowCinemaFormButton.TabIndex = 6;
+        ShowCinemaFormButton.Size = new System.Drawing.Size(150, 101);
+        ShowCinemaFormButton.TabIndex = 2;
         ShowCinemaFormButton.Text = "Показать список кинотеатров";
-        ShowCinemaFormButton.UseVisualStyleBackColor = true;
+        ShowCinemaFormButton.UseVisualStyleBackColor = false;
         ShowCinemaFormButton.Click += ShowCinemaFormButton_Click;
+        // 
+        // ShowFilmFormButton
+        // 
+        ShowFilmFormButton.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
+        ShowFilmFormButton.BackColor = System.Drawing.Color.PaleGreen;
+        ShowFilmFormButton.Location = new System.Drawing.Point(569, 218);
+        ShowFilmFormButton.Name = "ShowFilmFormButton";
+        ShowFilmFormButton.Size = new System.Drawing.Size(150, 101);
+        ShowFilmFormButton.TabIndex = 3;
+        ShowFilmFormButton.Text = "Показать список фильмов";
+        ShowFilmFormButton.UseVisualStyleBackColor = false;
+        ShowFilmFormButton.Click += ShowFilmFormButton_Click;
         // 
         // Form1
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        BackColor = System.Drawing.SystemColors.ControlLight;
+        BackColor = System.Drawing.Color.LightSteelBlue;
         ClientSize = new System.Drawing.Size(823, 753);
+        Controls.Add(ShowFilmFormButton);
         Controls.Add(ShowCinemaFormButton);
         Controls.Add(ShowVendorFormButton);
         Controls.Add(ShowRentsButton);
@@ -131,6 +155,7 @@ partial class Form1
         ResumeLayout(false);
     }
 
+    private System.Windows.Forms.Button ShowFilmFormButton;
     private System.Windows.Forms.Button ShowCinemaFormButton;
     private System.Windows.Forms.Button ShowVendorFormButton;
     private System.Windows.Forms.Button ShowRentsButton;

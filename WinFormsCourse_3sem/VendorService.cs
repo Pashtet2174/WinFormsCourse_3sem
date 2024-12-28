@@ -1,5 +1,3 @@
-using WinFormsCourse_3sem;
-
 namespace WinFormsCourse_3sem;
 
 public class VendorService : IVendorService

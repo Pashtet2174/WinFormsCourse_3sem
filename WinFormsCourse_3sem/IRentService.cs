@@ -1,4 +1,4 @@
-namespace Course_3sem;
+namespace WinFormsCourse_3sem;
 
 public interface IRentService
 {

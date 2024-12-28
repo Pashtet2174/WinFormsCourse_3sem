@@ -1,6 +1,4 @@
-using WinFormsCourse_3sem;
-
-namespace Course_3sem;
+namespace WinFormsCourse_3sem;
 
 public class Rent
 {
@@ -13,13 +11,29 @@ public class Rent
     public Cinema Cinema
     {
         get { return _cinema; }
-        set => _cinema = value ?? throw new ArgumentNullException("Кинотеатр не может быть null.");
+        set
+        {
+            if (_cinema == null)
+            {
+                throw new ArgumentNullException("Кинотеатр не может быть null.");
+            }
+
+            _cinema = value;
+        }
     }
 
     public Film Film
     {
         get { return _film; }
-        set => _film = value ?? throw new ArgumentNullException("Фильм не может быть null.");
+        set
+        {
+            if (_film == null)
+            {
+                throw new ArgumentNullException("Фильм не может быть null.");
+            }
+
+            _film = value;
+        }
     }
 
     public DateTime StartDate

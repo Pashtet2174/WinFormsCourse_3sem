@@ -1,5 +1,4 @@
 using System.Globalization;
-using Course_3sem;
 
 namespace WinFormsCourse_3sem;
 

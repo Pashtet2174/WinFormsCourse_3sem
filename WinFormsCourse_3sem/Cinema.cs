@@ -1,6 +1,3 @@
-using System.Text.Json.Serialization;
-using WinFormsCourse_3sem;
-
 namespace WinFormsCourse_3sem;
 
 public class Cinema
@@ -53,7 +50,7 @@ public class Cinema
         set
         {
             if (!CinemaValidator.ValidateSeatCapacity(value))
-                throw new ArgumentException("Некорректная вместимость. Она должна быть больше 0 и не превышать 10000.");
+                throw new ArgumentException("Некорректное количество посадочных мест. Оно должно быть больше 0 и не превышать 10000.");
             _seatCapacity = value;
         }
     }
@@ -96,7 +93,7 @@ public class Cinema
         set
         {
             if (!CinemaValidator.ValidateBankAccountNumber(value))
-                throw new ArgumentException("Некорректный номер банковского счёта. Он должен содержать 20 цифр.");
+                throw new ArgumentException("Некорректный номер счёта. Он должен содержать 20 цифр.");
             _bankAccountNumber = value;
         }
     }

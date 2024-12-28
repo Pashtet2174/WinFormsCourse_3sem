@@ -13,17 +13,31 @@ public partial class ShowVendorsForm : Form
     private void LoadData()
     {
         vensorsGridView.Rows.Clear(); 
-
-            var vendors = _vendorService.GetVendors();
-            foreach (var vendor in vendors)
+        var vendors = _vendorService.GetVendors();
+        
+        foreach (var vendor in vendors)
+        {
+            string filmsString;
+            if (vendor.Films.Count > 0)
             {
-                vensorsGridView.Rows.Add(
-                    vendor.Name,
-                    vendor.LegalAddress,
-                    vendor.BankName,
-                    vendor.BankAccountNumber,
-                    vendor.Inn
-                );
+                List<string> filmNames = new List<string>();
+                foreach (var film in vendor.Films)
+                {
+                    filmNames.Add(film.Name);
+                }
+                filmsString = string.Join(", ", filmNames);
             }
+            else
+                filmsString = "Нет фильмов";
+            
+            vensorsGridView.Rows.Add(
+                vendor.Name,
+                vendor.LegalAddress,
+                vendor.BankName,
+                vendor.BankAccountNumber,
+                vendor.Inn,
+                filmsString
+            );
+        }
     }
 }

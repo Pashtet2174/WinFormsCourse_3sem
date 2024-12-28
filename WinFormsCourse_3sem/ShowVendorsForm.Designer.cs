@@ -45,11 +45,12 @@ partial class ShowVendorsForm
         vensorsGridView.ReadOnly = true;
         vensorsGridView.DefaultCellStyle.SelectionBackColor = vensorsGridView.DefaultCellStyle.BackColor;
         vensorsGridView.DefaultCellStyle.SelectionForeColor = vensorsGridView.DefaultCellStyle.ForeColor;
-        vensorsGridView.Columns.Add("Name", "Название");
+        vensorsGridView.Columns.Add("Name", "Поставщик кинолент");
         vensorsGridView.Columns.Add("LegalAddress", "Юридический адрес");
-        vensorsGridView.Columns.Add("BankName", "Название банка");
-        vensorsGridView.Columns.Add("BankAccountNumber", "Номер банковского счёта");
+        vensorsGridView.Columns.Add("BankName", "Банк");
+        vensorsGridView.Columns.Add("BankAccountNumber", "Номер счёта");
         vensorsGridView.Columns.Add("Inn", "ИНН");
+        vensorsGridView.Columns.Add("Films", "Фильмы поставщика");
         // 
         // ShowVendorsForm
         // 
