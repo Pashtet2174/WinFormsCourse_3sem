@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCourse_3sem", "WinFormsCourse_3sem\WinFormsCourse_3sem.csproj", "{5CB99B89-0F66-409D-89BB-8B54681C28BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCourse_3sem.Tests", "WinFormsCourse_3sem.Tests\WinFormsCourse_3sem.Tests.csproj", "{702F1BF2-8A2D-4F4D-98A2-B7AE510A2786}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{5CB99B89-0F66-409D-89BB-8B54681C28BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CB99B89-0F66-409D-89BB-8B54681C28BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CB99B89-0F66-409D-89BB-8B54681C28BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702F1BF2-8A2D-4F4D-98A2-B7AE510A2786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702F1BF2-8A2D-4F4D-98A2-B7AE510A2786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702F1BF2-8A2D-4F4D-98A2-B7AE510A2786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702F1BF2-8A2D-4F4D-98A2-B7AE510A2786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
