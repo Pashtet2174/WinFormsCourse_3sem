@@ -186,45 +186,10 @@ public partial class Form1 : Form
         string costText = filmCostTextBox.Text;
         Vendor selectedVendor = vendorComboBox.SelectedItem as Vendor;
 
-        if (!FilmValidator.ValidateName(name))
+        string errorMessage = _filmService.ValidateFilm(name, category, scriptwriter, productiondirector, productionCompany, releaseYearText, costText);
+        if (!string.IsNullOrEmpty(errorMessage))
         {
-            MessageBox.Show("Некорректное название фильма. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!FilmValidator.ValidateCategory(category))
-        {
-            MessageBox.Show("Некорректная категория фильма. Она должна содержать до 50 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!FilmValidator.ValidateScriptwriter(scriptwriter))
-        {
-            MessageBox.Show("Некорректное автор сценария. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!FilmValidator.ValidateProductionDirector(productiondirector))
-        {
-            MessageBox.Show("Некорректное имя режиссёра-постановщика. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!FilmValidator.ValidateProductionCompany(productionCompany))
-        {
-            MessageBox.Show("Некорректное название компании-производителя. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!int.TryParse(releaseYearText, out int releaseYear) || !FilmValidator.ValidateReleaseYear(releaseYear))
-        {
-            MessageBox.Show("Введите корректный год выхода на экран. Он должен быть не позже текущего года.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!decimal.TryParse(costText, out decimal cost) || !FilmValidator.ValidateCost(cost))
-        {
-            MessageBox.Show("Введите корректную стоимость приобретения. Она должна быть больше 0.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(errorMessage, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
@@ -233,10 +198,12 @@ public partial class Form1 : Form
             MessageBox.Show("Пожалуйста, выберите поставщика или добавьте его сначала с помощью кнопки 'Добавить поставщика'.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
-
-        Film film = new Film(name, category, scriptwriter, productiondirector, productionCompany, releaseYear, cost);
         
-        _filmService.AddFilm(film);
+        int releaseYear = int.Parse(releaseYearText);
+        decimal cost = decimal.Parse(costText);
+        
+        
+        var film = _filmService.CreateFilm(name, category, scriptwriter, productiondirector, productionCompany, releaseYear, cost);
         _vendorService.AddFilmToVendor(selectedVendor, film);
         
         MessageBox.Show("Фильм успешно добавлен.");
@@ -277,62 +244,15 @@ public partial class Form1 : Form
         string bankAccount = cinemaBankAccountTextBox.Text;
         string inn = cinemaInnTextBox.Text;
         
-        if (!CinemaValidator.ValidateName(name))
+        string errorMessage = _cinemaService.ValidateCinema(name, address, phone, seatCapacityText, director, owner, bankName, bankAccount, inn);
+        if (!string.IsNullOrEmpty(errorMessage))
         {
-            MessageBox.Show("Некорректное название кинотеатра. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(errorMessage, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
-
-        if (!CinemaValidator.ValidateAddress(address))
-        {
-            MessageBox.Show("Некорректный адрес. Он должен содержать до 200 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!CinemaValidator.ValidatePhone(phone))
-        {
-            MessageBox.Show("Некорректный номер телефона. Он должен содержать 10 цифр.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!int.TryParse(seatCapacityText, out int seatCapacity) || !CinemaValidator.ValidateSeatCapacity(seatCapacity))
-        {
-            MessageBox.Show("Введите корректную вместимость. Она должна быть больше 0 и не превышать 10000.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!CinemaValidator.ValidateDirector(director))
-        {
-            MessageBox.Show("Некорректное имя директора. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!CinemaValidator.ValidateOwner(owner))
-        {
-            MessageBox.Show("Некорректное имя владельца. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!CinemaValidator.ValidateBankName(bankName))
-        {
-            MessageBox.Show("Некорректное название банка. Оно должно содержать до 100 символов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!CinemaValidator.ValidateBankAccountNumber(bankAccount))
-        {
-            MessageBox.Show("Некорректный номер банковского счета. Он должен содержать 20 цифр.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (!CinemaValidator.ValidateInn(inn))
-        {
-            MessageBox.Show("Некорректный ИНН. Он должен содержать 10 или 12 цифр.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-        Cinema cinema = new Cinema(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, inn);
         
-        _cinemaService.AddCinema(cinema);
+        int seatCapacity = int.Parse(seatCapacityText);  
+        _cinemaService.CreateCinema(name, address, phone, seatCapacity, director, owner, bankName, bankAccount, inn);
         MessageBox.Show("Кинотеатр успешно добавлен.");
         
         UpdateCinemaComboBox();
@@ -376,8 +296,7 @@ public partial class Form1 : Form
             return;
         }
         
-        Rent rent = new Rent(сinema, film, startDate, endDate, rentalPrice);
-        _rentService.AddRent(rent);
+        _rentService.CreateRent(сinema, film, startDate, endDate, rentalPrice);
         MessageBox.Show("Аренда успешно добавлена.");
         
         cinemaNameRentComboBox.SelectedIndex = -1;

@@ -12,6 +12,10 @@ public class RentService : IRentService
     {
         return _rents;
     }
-    
-    
+
+    public void CreateRent(Cinema сinema, Film film, DateTime startDate, DateTime endDate, decimal rentalPrice)
+    {
+        Rent rent = new Rent(сinema, film, startDate, endDate, rentalPrice);
+        AddRent(rent);
+    }
 }
